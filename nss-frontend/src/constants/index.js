@@ -28,9 +28,9 @@ export const IIITDImages = [
 ];
 
 export const statistics = [
-    { value: '1k+', label: 'Volunteers' },
-    { value: '500+', label: 'Collaborations' },
-    { value: '250+', label: 'Initiatives' },
+    { value: '1k+', stat: 'Volunteers' },
+    { value: '500+', stat: 'Collaborations' },
+    { value: '250+', stat: 'Initiatives' },
 ];
 
 export const products = [

@@ -1,17 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react";
 import { Button, SmallCard } from "../components";
 import {arrowRight} from '../assets/icons'
-import { IIITDImages, statistics } from "../constants";
-import { bigShoe1 } from '../assets/images'
+import { IIITDImages} from "../constants";
+import { IIITD_1 } from '../assets/images'
+import {Home} from '../Pages';
 const Intro = () => {
-  const [bigCard, setbigCard] = useState(bigShoe1);
+  const [bigCard, setbigCard] = useState(IIITD_1);
+  const [statistics,setStatistics] = useState([
+      { value: '1k+', stat: 'Volunteers' },
+      { value: '500+', stat: 'Collaborations' },
+      { value: '250+', stat: 'Initiatives' },
+  ]);
+  useEffect(()=>{
+    const fetchStats = async() => {
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/static',{
+          method:'GET',
+          headers:{
+            'Content-Type':'application/json',
+          },
+        })
+        if(response.ok){
+          const result = await response.json();
+          console.log(result);
+          setStatistics(result.data);
+        }
+      } catch (error) {
+        
+      }
+    }
+    fetchStats();
+  },[]);
   return (
     <section
       id='home'
       className='w-full flex xl:flex-row flex-col justify-center min-h-screen gap-[100px] max-container'
     >
-      <div className='relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28'>
+      <div className='relative xl:w-2/5 flex flex-col xl:mr-[60%] justify-center items-start w-full  max-xl:padding-x pt-28'>
         <p className='text-xl font-montserrat text-coral-red'>
           Our Summer collections
         </p>
@@ -37,7 +63,7 @@ const Intro = () => {
             <div key={index}>
               <p className='text-4xl font-palanquin font-bold'>{stat.value}</p>
               <p className='leading-7 font-montserrat text-slate-gray'>
-                {stat.label}
+                {stat.stat}
               </p>
             </div>
           ))}
@@ -51,29 +77,24 @@ const Intro = () => {
           width="99%"
           height="80%"
           className='object-contain relative z-10'
-        /> */}
-        <div className='relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-cover bg-center' style={{ backgroundImage: `url(${bigCard})` }}>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className='flex sm:gap-6 sm:mt-[50px] gap-4 absolute -bottom-[5%] max-sm:px-6'>
-          {IIITDImages.map((image, index) => (
-            <div key={index}>
-              <SmallCard
-                index={index}
-                imgURL={image}
-                changeBigCardImage={(shoe) => setbigCard(shoe)}
-                bigCard={bigCard}
-              />
-            </div>
-          ))}
+        /> 
+      */}
+
+        <div className='xl:absolute xl:ml-[55%] xl:w-[50%]'>
+          <div className='relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-cover bg-center' style={{ backgroundImage: `url(${bigCard})` }}>
+            <br /><br /><br /><br /><br /><br />
+          <div className='flex sm:gap-6 sm:mt-[50px] gap-4 absolute -bottom-[5%] max-sm:px-6'>
+            {IIITDImages.map((image, index) => (
+              <div key={index}>
+                <SmallCard
+                  index={index}
+                  imgURL={image}
+                  changeBigCardImage={(shoe) => setbigCard(shoe)}
+                  bigCard={bigCard}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
