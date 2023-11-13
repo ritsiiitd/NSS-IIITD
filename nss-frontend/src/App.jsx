@@ -2,6 +2,8 @@ import {About,Departments,Events,Footer,Intro,Statistics,Subscribe,Testimonials}
 import {Navbar} from './components'
 import { BrowserRouter,Link,Route,Routes} from 'react-router-dom';
 import {Home,EventPage} from './Pages';
+import { useAuth0 } from '@auth0/auth0-react';
+
 const App = () => (
   <BrowserRouter>
     <main className="relative">

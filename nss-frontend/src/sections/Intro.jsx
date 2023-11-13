@@ -8,9 +8,9 @@ import {Home} from '../Pages';
 const Intro = () => {
   const [bigCard, setbigCard] = useState(IIITD_1);
   const [statistics,setStatistics] = useState([
-      { value: '1k+', stat: 'Volunteers' },
-      { value: '500+', stat: 'Collaborations' },
-      { value: '250+', stat: 'Initiatives' },
+      { value: '1+', stat: 'Volunteers' },
+      { value: '5+', stat: 'Collaborations' },
+      { value: '2+', stat: 'Initiatives' },
   ]);
   useEffect(()=>{
     const fetchStats = async() => {
