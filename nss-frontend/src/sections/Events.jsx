@@ -1,9 +1,12 @@
-import React from 'react'
 
+import { Event } from "../components";
 const Events = () => {
   return (
-    <div>Events</div>
-  )
-}
+    <>
+      <Event leftRight={true}/>
+      <Event leftRight={false}/>
+    </>
+  );
+};
 
-export default Events
+export default Events;
