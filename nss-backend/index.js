@@ -4,6 +4,7 @@ import cors from 'cors';
 import connectDB from './mongodb/connect.js';
 import staticRoutes from './routes/staticRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
+import eventPageRoutes from './routes/eventPageRoutes.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json({limit:'50mb'})); //configuring Express to parse incoming J
 
 app.use('/api/v1/static',staticRoutes);
 app.use('/api/v1/allEvents',eventRoutes);
+app.use('/api/v1/eventPage',eventPageRoutes);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");

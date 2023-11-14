@@ -12,7 +12,7 @@ const router = express.Router();
 router.route('/').get(async(req,res)=>{
     try {
         const stats = await Statistics.find({});
-        console.log(stats);
+        // console.log(stats);
         res.status(200).json({success: true, data:stats});
     } catch (error) {
         res.status(500).json({success: false, message:error});

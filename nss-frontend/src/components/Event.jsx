@@ -1,6 +1,7 @@
 import React from 'react'
 import { shoe8 } from "../assets/images";
 import { Button } from "../components";
+import { Link } from 'react-router-dom';
 const Event = ({eventHeading, eventShortDescription, eventId, eventImage, leftRight,eventDate, organizer}) => {
     console.log(leftRight);
   return (
@@ -20,9 +21,9 @@ const Event = ({eventHeading, eventShortDescription, eventId, eventImage, leftRi
           {eventShortDescription} 
         </p>
         
-        <div className='mt-11'>
+        <Link to={`/events/${eventId}`} className='mt-11'>
           <Button label='View details' />
-        </div>
+        </Link>
         
       </div>
 
@@ -65,12 +66,12 @@ const Event = ({eventHeading, eventShortDescription, eventId, eventImage, leftRi
           {eventShortDescription}
         </p>
 
-        <div className='mt-11'>
+        <Link to={`/events/${eventId}`} className='mt-11'>
           <Button label='View details' />
-        </div>
+        </Link>
       
       </div>
-      
+  
     </section>
     )}
     {leftRight && (<>
