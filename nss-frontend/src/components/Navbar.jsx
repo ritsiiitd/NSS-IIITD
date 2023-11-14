@@ -1,8 +1,10 @@
 import { hamburger } from "../assets/icons";
 import { NSS } from "../assets/images";
 import { navLinks } from "../constants";
-
+import { useAuth0 } from "@auth0/auth0-react";
 const Nav = () => {
+  const {isLoading,error} = useAuth0();
+  const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
   return (
     <header className='padding-x py-8 absolute z-10 w-full'>
       <nav className='flex justify-between items-center max-container'>
@@ -27,11 +29,22 @@ const Nav = () => {
             </li>
           ))}
         </ul>
-        <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
-          <a href='/'>Sign in</a>
-          <span>/</span>
-          <a href='/'>Explore now</a>
-        </div>
+        {error && <p>Authentication Error</p>}
+        {!error && isLoading && <p>Loading....</p>}
+         {!error && !isLoading && !isAuthenticated && <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
+          <button onClick={()=>loginWithRedirect()}>
+            Login / Sign up
+          </button>
+          {/* <span>/</span>
+          <a href='/'>Explore now</a> */}
+        </div>}
+         {!error && !isLoading && isAuthenticated && <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
+          <button onClick={()=>logout()}>
+            {user.given_name} / Sign out
+          </button>
+          {/* <span>/</span>
+          <a href='/'>Explore now</a> */}
+        </div>}
         <div className='hidden max-lg:block'>
           <img src={hamburger} alt='hamburger icon' width={25} height={25} />
         </div>
