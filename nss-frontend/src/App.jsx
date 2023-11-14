@@ -11,7 +11,8 @@ const App = () => (
       
       <Routes>
         <Route path="/" element={<Home/>}></Route>
-        <Route path="/events" element={<EventPage/>}></Route>
+        <Route path="/events/:eventId" element={<EventPage/>}></Route>
+        {/* :eventId is a URL parameter that can be used to identify the specific event */}
       </Routes>
       
       <section className="bg-black padding-x padding-t pb-8">
