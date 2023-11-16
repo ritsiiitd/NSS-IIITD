@@ -31,7 +31,13 @@ const Event = new mongoose.Schema({
     picture: {
         type: String,
     },
+    organiserLogo: {
+        type: String,
+    },
     description: {
+        type: String,
+    },
+    title: {
         type: String,
     },
     

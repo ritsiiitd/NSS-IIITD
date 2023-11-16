@@ -38,8 +38,9 @@ const Events = () => {
   },[]);
   return (
     <>
+    <div className="flex gap-10 flex-wrap justify-center">
       {allEvents.map(event => (
-      <Event
+        <Event
         key={event.eventID}
         eventHeading={event.name}
         eventShortDescription={event.title}
@@ -48,8 +49,9 @@ const Events = () => {
         leftRight={event.eventID % 2 === 0}
         // eventDate = {event.date}
         organizer = {event.organiser}
-      />
-    ))}
+        />
+        ))}
+    </div>
     </>
   );
 };
