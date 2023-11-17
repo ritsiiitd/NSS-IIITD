@@ -8,6 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const EventPage = () => {
 
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
+  const [isUserVolunteer, setIsUserVolunteer] = useState(false);
   console.log("Effect triggered");
   const { state } = useLocation();
   const { eventId } = useParams();
@@ -40,40 +41,56 @@ const EventPage = () => {
 
       if (response.ok) {
         // Handle success, maybe show a success message
+        setIsUserVolunteer(true);
         alert('Registration successful');
       } else {
         // Handle errors
-        console.error('Registration failed. Server returned:', response.status, response.statusText);
+        console.error('Registration failed. Server returned:', response.status, response.message);
       }
     } catch (error) {
       console.error('Error during registration', error);
       alert('Error during registration', error);
     }
+    finally{
+      fetchEvents();
+    }
   };
+
+  const fetchEvents = async() => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/v1/eventPage/${eventId}`,{
+        method:'GET',
+        headers:{
+          'Content-Type':'application/json',
+        },
+      })
+      if(response.ok){
+        const result = await response.json();
+        setEvent(result.data);
+        if(event!=null)
+        {
+          console.log(event[0]?._id);
+          
+          const userId = user?.sub;
+          if (userId) {
+            console.log("this happened");
+            setIsUserVolunteer(true);
+          } else {
+            setIsUserVolunteer(false);
+          }
+      }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     // Fetch event details using eventId (make an API call or use your data source)
     // Update the state with the event details
-    const fetchEvents = async() => {
-      try {
-        const response = await fetch(`http://localhost:8080/api/v1/eventPage/${eventId}`,{
-          method:'GET',
-          headers:{
-            'Content-Type':'application/json',
-          },
-        })
-        if(response.ok){
-          const result = await response.json();
-          setEvent(result.data);
-          if(event!=null)
-          console.log(event[0]?._id);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
     fetchEvents();
   }, [eventId]);
+
   if (event === null) {
     return <Loader />;
   }
@@ -164,6 +181,29 @@ const EventPage = () => {
             </div>
           </div>
         </div>}
+        
+        {isAuthenticated && isUserVolunteer && <div className="flex-1">
+          {/* <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>    */}
+
+          <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
+            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#808191]">
+              Volunteer Registration
+            </p>
+            <div className="mt-[10px]">
+        
+              <div className="mt-[1px] p-4 bg-[#13131a] rounded-[10px]">
+                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
+                <p className="mt-[10px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the initiative for no reward, just because it speaks to you.</p>
+              </div>
+
+              <CustomButton 
+                btnType="button"
+                title="Registered"
+                styles="w-full mt-[10px] bg-[#4BB543]"
+              />
+            </div>
+          </div>
+        </div>}
 
         {!isAuthenticated && <div className="flex-1">
           {/* <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>    */}
@@ -182,7 +222,7 @@ const EventPage = () => {
                 btnType="button"
                 title="Login"
                 styles="w-full mt-[10px] bg-[#8c6dfd]"
-                handleClick={loginWithRedirect()}
+                handleClick={() => loginWithRedirect()}
               />
             </div>
           </div>
