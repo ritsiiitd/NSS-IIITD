@@ -8,13 +8,15 @@ import { useAuth0 } from "@auth0/auth0-react";
 const EventPage = () => {
 
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
-  const [isUserVolunteer, setIsUserVolunteer] = useState(false);
-  console.log("Effect triggered");
+  const {isLoading,error} = useAuth0();
   const { state } = useLocation();
   const { eventId } = useParams();
+  
+  const [isUserVolunteer, setIsUserVolunteer] = useState(false);
   const [event, setEvent] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  console.log("Event ID is ", eventId);
+  const [isLoadingEvent, setIsLoadingEvent] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const [isLoadingEventAuth, setIsLoadingEventAuth] = useState(true);
 
   function formatMongoDate(dateString) {
 
@@ -67,18 +69,7 @@ const EventPage = () => {
       if(response.ok){
         const result = await response.json();
         setEvent(result.data);
-        if(event!=null)
-        {
-          console.log(event[0]?._id);
-          
-          const userId = user?.sub;
-          if (userId) {
-            console.log("this happened");
-            setIsUserVolunteer(true);
-          } else {
-            setIsUserVolunteer(false);
-          }
-      }
+        setIsInitialized(true);
       }
     } catch (error) {
       console.log(error);
@@ -91,12 +82,24 @@ const EventPage = () => {
     fetchEvents();
   }, [eventId]);
 
-  if (event === null) {
+  useEffect(() => {
+    if (isInitialized && event.length > 0) {
+      const userId = user?.sub;
+
+      if (userId && event[0]?.volunteers.includes(userId)) {
+        setIsUserVolunteer(true);
+      } else {
+        setIsUserVolunteer(false);
+      }
+    }
+  }, [isInitialized, event, user]);
+
+  if (event === null || isLoading) {
     return <Loader />;
   }
   return (
     <div className='padding'>
-      {isLoading && <Loader />}
+      {isLoadingEvent && <Loader />}
 
       <div className='w-full flex md:flex-row flex-col mt-10 gap-[30px]'>
         <div className='flex-1 flex-col'>
@@ -158,7 +161,7 @@ const EventPage = () => {
           
         </div>
         
-        {isAuthenticated && <div className="flex-1">
+        {isAuthenticated && !isUserVolunteer && <div className="flex-1">
           {/* <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>    */}
 
           <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
@@ -191,15 +194,11 @@ const EventPage = () => {
             </p>
             <div className="mt-[10px]">
         
-              <div className="mt-[1px] p-4 bg-[#13131a] rounded-[10px]">
-                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
-                <p className="mt-[10px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the initiative for no reward, just because it speaks to you.</p>
-              </div>
-
+              
               <CustomButton 
                 btnType="button"
-                title="Registered"
-                styles="w-full mt-[10px] bg-[#4BB543]"
+                title="Registered !!"
+                styles="w-full mt-[10px] bg-[#860A35]"
               />
             </div>
           </div>
