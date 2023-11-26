@@ -8,6 +8,13 @@ import NSS from './NSS.png'
 import NSS_logo from './NSS_logo.jpg'
 import IIIT_Delhi from './IIIT_Delhi.png'
 
+import donation1 from './donation1.png'
+import education from './education.png'
+import environment from './environment.png'
+import health from './health.png'
+import skill from './skill.png'
+import sanitation from './sanitaion.png'
+
 import customer1 from './customer1.jpeg'
 import customer2 from './customer2.svg'
 
@@ -40,6 +47,7 @@ export {
 
     customer1,
     customer2,
+    donation1,education,environment,sanitation,skill,health,
 
     footerLogo,
     headerLogo,

@@ -6,6 +6,9 @@ import Event from "./Event";
 import CountBox from "./CountBox";
 import CustomButton from "./CustomButton";
 import Loader from "./Loader";
+import TestimonialCard from "./TestimonialCard";
+import Social from "./Social";
+import Dept from "./Dept";
 
 
 export{
@@ -15,5 +18,8 @@ export{
     SmallCard,
     CustomButton,
     CountBox,
-    Loader
+    Loader,
+    TestimonialCard,
+    Social,
+    Dept
 }

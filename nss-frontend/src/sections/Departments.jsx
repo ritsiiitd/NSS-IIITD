@@ -1,8 +1,11 @@
 import React from 'react'
-
+import { Card } from 'flowbite-react';
+import { Dept } from "../components";
 const Departments = () => {
   return (
-    <div>Departments</div>
+    <div className='flex gap-4'>
+      <Dept />
+    </div>
   )
 }
 

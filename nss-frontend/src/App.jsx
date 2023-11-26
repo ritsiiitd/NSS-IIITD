@@ -1,4 +1,4 @@
-import {About,Departments,Events,Footer,Intro,Statistics,Subscribe,Testimonials} from './sections'
+import {About,Departments,Events,Footer,Intro,Statistics,Subscribe,Testimonial} from './sections'
 import {Navbar} from './components'
 import { BrowserRouter,Link,Route,Routes} from 'react-router-dom';
 import {Home,EventPage,Gallery} from './Pages';

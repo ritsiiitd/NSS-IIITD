@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Event } from "../components";
 const Events = () => {
@@ -36,9 +35,75 @@ const Events = () => {
     }
     fetchEvents();
   },[]);
+
+
+  const [animationCompleted, setAnimationCompleted] = useState(false);
+
+  useEffect(() => {
+    // Set animationCompleted to true after the animation duration
+    const animationDuration = 1.5; // in seconds
+    const timeoutId = setTimeout(() => {
+      setAnimationCompleted(true);
+    }, animationDuration * 1000);
+
+    // Clear the timeout when the component unmounts
+    return () => clearTimeout(timeoutId);
+  }, []);
+
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Set isScrolled to true when the scroll position is greater than a specific value
+      const scrollThreshold = 500; // adjust as needed
+      const currentScrollPos = window.scrollY;
+
+      if (currentScrollPos > scrollThreshold) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Remove the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
-    <div className="flex gap-10 flex-wrap justify-center">
+    <div
+      className={`flex flex-row justify-start ml-${animationCompleted ? '0' : '[-50px]'}`}
+      style={{ transition: 'margin-left 1.5s', borderBottom: '3px solid red' }}
+    >
+      <div
+        className="text-black text-center text-[200%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        style={{ verticalAlign: 'bottom' }}
+      >
+        upcoming &nbsp;
+      </div>
+
+      <div
+        className="text-black text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        style={{ verticalAlign: 'bottom' }}
+      >
+        events&nbsp;
+      </div>
+
+      <div
+        className="text-center text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        style={{ verticalAlign: 'bottom' }}
+      >
+        .
+      </div>
+    </div>
+    <br /><br /> <br />
+    <div className="flex gap-[40px] flex-wrap justify-center">
       {allEvents.map(event => (
         <Event
         key={event.eventID}

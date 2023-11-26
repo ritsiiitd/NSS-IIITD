@@ -6,7 +6,8 @@ import Events from './Events';
 import Footer from './Footer';
 import Statistics from './Statistics';
 import Subscribe from './Subscribe';
-import Testimonials from './Testimonials';
+import Testimonial from './Testimonial';
+import FAQs from './FAQs';
 
 export{
     Intro,
@@ -16,5 +17,6 @@ export{
     Footer,
     Statistics,
     Subscribe,
-    Testimonials,
+    Testimonial,
+    FAQs
 }

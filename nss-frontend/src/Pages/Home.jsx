@@ -1,15 +1,12 @@
 import React from 'react'
-import {About,Departments,Events,Footer,Intro,Statistics,Subscribe,Testimonials} from '../sections'
+import {About,Departments,Events,Footer,Intro,Statistics,Subscribe,Testimonial,FAQs} from '../sections'
 
 const Home = () => {
   return (
     <main className="relative">
 
     <section  className="x1:padding-1 wide:padding-r padding-b">
-    <Intro />
-    </section>
-    <section className="padding">
-      <About />
+      <Intro />
     </section>
     <section className="padding">
       <Departments />
@@ -18,11 +15,13 @@ const Home = () => {
       <Events />
     </section>
     <section className="padding bg-pale-blue">
-      <Testimonials />
+      <Testimonial />
     </section>
-    
-    <section className="padding-x sm:py-32 py-16 w-full">
+    <section className="padding-x font-montserrat w-full">
       <Subscribe />
+    </section>
+    <section className="padding-x flex justify-center w-full">
+      <FAQs />
     </section>
     </main>
   )
