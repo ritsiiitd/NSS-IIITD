@@ -98,7 +98,7 @@ export const footerLinks = [
             { name: "Testimonials", link: "/" },
 
             { name: "Blog", link: "/" },
-            { name: "Volunteer login", link: "/" },
+            { name: "Volunteer login", link: "/login" },
             
         ],
     },

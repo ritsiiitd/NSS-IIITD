@@ -6,6 +6,10 @@ import staticRoutes from './routes/staticRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
 import eventPageRoutes from './routes/eventPageRoutes.js';
 import volunteerRegisterRoutes from './routes/volunteerRegisterRoutes.js';
+import departmentRoutes from './routes/departmentRoutes.js';
+import testimoniesRoutes from './routes/testimoniesRoutes.js';
+import blogRoutes from './routes/blogRoutes.js';
+import faqRoutes from './routes/faqRoutes.js';
 
 dotenv.config();
 
@@ -18,6 +22,10 @@ app.use('/api/v1/static',staticRoutes);
 app.use('/api/v1/allEvents',eventRoutes);
 app.use('/api/v1/eventPage',eventPageRoutes);
 app.use('/api/v1/registerVolunteer',volunteerRegisterRoutes);
+app.use('/api/v1/departments',departmentRoutes);
+app.use('/api/v1/testimonies',testimoniesRoutes);
+app.use('/api/v1/blogs',blogRoutes);
+app.use('/api/v1/faqs',faqRoutes);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");

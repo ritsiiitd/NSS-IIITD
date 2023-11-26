@@ -5,10 +5,10 @@ const Home = () => {
   return (
     <main className="relative">
 
-    <section  className="x1:padding-1 wide:padding-r padding-b">
+    <section id='Intro' className="x1:padding-1 wide:padding-r padding-b">
       <Intro />
     </section>
-    <section className="padding">
+    <section id='Departments' className="padding">
       <Departments />
     </section>
     <section className="padding">
