@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { copyrightSign } from "../assets/icons";
 import { IIIT_Delhi } from "../assets/images";
 import { footerLinks, socialMedia } from "../constants";
@@ -43,7 +44,8 @@ const Footer = () => {
                     className='mt-3 font-montserrat text-base leading-normal text-white-400 hover:text-slate-gray'
                     key={link.name}
                   >
-                    <a href={link.link}>{link.name}</a>
+                    <Link to={link.link}>{link.name}</Link>
+                    {/* <a href={link.link}>{link.name}</a> */}
                   </li>
                 ))}
               </ul>

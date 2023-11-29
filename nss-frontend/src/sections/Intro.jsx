@@ -35,7 +35,7 @@ const Intro = () => {
   return (
     <section
       id='home'
-      className='w-full flex xl:flex-row flex-col justify-center min-h-screen gap-[100px] max-container'
+      className='w-full flex xl:flex-row flex-col justify-center gap-[100px] max-container'
     >
       <div className='relative xl:w-2/5 flex flex-col xl:mr-[60%] justify-center items-start w-full  max-xl:padding-x pt-28'>
         <p className='text-xl font-montserrat text-coral-red'>

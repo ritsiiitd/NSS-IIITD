@@ -6,7 +6,7 @@ const Nav = () => {
   const {isLoading,error} = useAuth0();
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
   return (
-    <header className='padding-x py-8 absolute z-10 w-full'>
+    <header className='bg-black bg-gradient-to-bl py-3 absolute z-10 w-[100%]'>
       <nav className='flex justify-between items-center max-container'>
         <a href='/'>
           <img
@@ -17,12 +17,12 @@ const Nav = () => {
             className='m-0 w-[50px] h-[40px]'
           />
         </a>
-        <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden'>
+        <ul className='flex-1 flex justify-center  items-center gap-16 max-lg:hidden'>
           {navLinks.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className='font-montserrat leading-normal text-lg text-slate-gray'
+                className='font-montserrat leading-normal text-lg text-white'
               >
                 {item.label}
               </a>

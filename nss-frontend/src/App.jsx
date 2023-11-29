@@ -5,12 +5,13 @@ import {Home,EventPage,Gallery} from './Pages';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const App = () => (
+  
   <BrowserRouter>
     <main className="relative">
       <Navbar />
       
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
+        <Route path="/:sectionId?" element={<Home/>}></Route>
         <Route path="/events/:eventId" element={<EventPage/>}></Route>
         <Route path="/gallery" element={<Gallery/>}></Route>
         

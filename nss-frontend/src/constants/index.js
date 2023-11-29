@@ -94,19 +94,19 @@ export const footerLinks = [
     {
         title: "Useful Links",
         links: [
-            { name: "Gallery", link: "/" },
-            { name: "Testimonials", link: "/" },
+            { name: "Gallery", link: "/Gallery" },
+            { name: "Testimonials", link: "/Testimonial" },
 
-            { name: "Blog", link: "/" },
-            { name: "Volunteer login", link: "/login" },
+            { name: "Blog", link: "/Subscribe" },
+            
             
         ],
     },
     {
         title: "Help",
         links: [
-            { name: "About us", link: "/" },
-            { name: "FAQs", link: "/" },
+            { name: "About us", link: "/About_us" },
+            { name: "FAQs", link: "/FAQs" },
             { name: "How it works", link: "/" },
             { name: "Privacy policy", link: "/" },
         ],
