@@ -37,7 +37,7 @@ const Intro = () => {
       id='home'
       className='w-full flex xl:flex-row flex-col justify-center gap-[100px] max-container'
     >
-      <div className='relative xl:w-2/5 flex flex-col xl:mr-[60%] justify-center items-start w-full  max-xl:padding-x pt-28'>
+      <div className='relative xl:w-2/5 flex flex-col xl:mr-[60%] justify-center items-start w-full  max-xl:padding-x pt-[50px]'>
         <p className='text-xl font-montserrat text-coral-red'>
           Our Summer collections
         </p>
@@ -81,7 +81,7 @@ const Intro = () => {
       */}
 
         <div className='xl:absolute xl:ml-[55%] xl:w-[843px]'>
-          <div className='relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-cover bg-center' style={{ backgroundImage: `url(${bigCard})` }}>
+          <div className='relative flex-1 flex justify-center items-center xl:min-h-[800px] max-xl:py-40 bg-primary bg-cover bg-center' style={{ backgroundImage: `url(${bigCard})` }}>
             <br /><br /><br /><br /><br /><br />
           <div className='flex sm:gap-6 sm:mt-[50px] gap-4 absolute -bottom-[5%] max-sm:px-6'>
             {IIITDImages.map((image, index) => (

@@ -7,6 +7,7 @@ import IIITD_3 from './IIITD_3.jpg'
 import NSS from './NSS.png'
 import NSS_logo from './NSS_logo.jpg'
 import IIIT_Delhi from './IIIT_Delhi.png'
+import nssIntroVideo from './nssIntroVideo.mp4'
 
 import donation1 from './donation1.png'
 import education from './education.png'
@@ -45,6 +46,7 @@ export {
     NSS_logo,
     IIIT_Delhi,
 
+    nssIntroVideo,
     customer1,
     customer2,
     donation1,education,environment,sanitation,skill,health,
