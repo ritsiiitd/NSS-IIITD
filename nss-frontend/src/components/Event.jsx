@@ -7,14 +7,14 @@ const Event = ({eventHeading, eventShortDescription, eventId, eventImage, leftRi
   return (
     
     <>
-      <div className="card" style={{ backgroundImage: `url(${eventImage})` }}>
+      <div className="card " style={{ backgroundImage: `url(${eventImage})` }}>
         <div className="card-content">
-          <h2 className="card-title">{eventHeading}</h2>
-          <p className="card-body">
+          <h2 className="card-title font-palanquin">{eventHeading}</h2>
+          <p className="card-body font-palanquin">
             {eventShortDescription}
           </p>
-          <Link to={`/events/${eventId}`} className="button">
-            Learn More
+          <Link to={`/events/${eventId}`} className="bg-coral-red font-palanquin text-white button">
+            Dive In
           </Link>
         </div>
       </div>

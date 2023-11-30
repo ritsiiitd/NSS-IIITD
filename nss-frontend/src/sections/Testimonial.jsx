@@ -17,10 +17,10 @@ export default class AutoPlay extends Component {
     return (
       <div>
         <div className='flex felx-row'>
-        <div className="text-black text-center text-[50px] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]">
+        <div className="text-black font-palanquin text-center text-[50px] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]">
             Testimonies&nbsp;
         </div>
-        <div className="text-center text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]">
+        <div className="text-center font-palanquin text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]">
             .
         </div>
       </div>

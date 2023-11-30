@@ -82,21 +82,21 @@ const Events = () => {
       style={{ transition: 'margin-left 1.5s', borderBottom: '3px solid red' }}
     >
       <div
-        className="text-black text-center text-[200%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        className="text-black font-palanquin text-center text-[200%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
         style={{ verticalAlign: 'bottom' }}
       >
         upcoming &nbsp;
       </div>
 
       <div
-        className="text-black text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        className="text-black font-palanquin text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
         style={{ verticalAlign: 'bottom' }}
       >
         events&nbsp;
       </div>
 
       <div
-        className="text-center text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        className="text-center font-palanquin text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
         style={{ verticalAlign: 'bottom' }}
       >
         .

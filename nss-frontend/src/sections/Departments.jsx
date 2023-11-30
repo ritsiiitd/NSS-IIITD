@@ -13,7 +13,7 @@ const Departments = () => {
       
 
       <div
-        className="text-black text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        className="text-black font-palanquin text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
         style={{ verticalAlign: 'bottom' }}
       >
         Departments&nbsp;

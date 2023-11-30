@@ -12,7 +12,7 @@ import { facebook, instagram, linkedin,github } from "../assets/icons";
 export default function TestimonialCard() {
   return (
     <>
-    <MDBCard className='py-1 border-solid border-coral-red border-r-4 shadow-lg shadow-zinc-700'>
+    <MDBCard className='py-1 border-solid border-coral-red border-r-4 shadow-lg font-palanquin shadow-zinc-700'>
       <MDBCardBody>
         <div className='flex'>
             <img src="" alt="pic" />

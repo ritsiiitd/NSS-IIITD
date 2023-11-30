@@ -2,11 +2,12 @@ import { hamburger } from "../assets/icons";
 import { NSS } from "../assets/images";
 import { navLinks } from "../constants";
 import { useAuth0 } from "@auth0/auth0-react";
+
 const Nav = () => {
   const {isLoading,error} = useAuth0();
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
   return (
-    <header className='bg-black bg-gradient-to-bl py-3 absolute z-10 w-[100%]'>
+    <header className='bg-black fixed bg-gradient-to-bl py-3 absolute z-10 w-[100%]'>
       <nav className='flex justify-between items-center max-container'>
         <a href='/'>
           <img

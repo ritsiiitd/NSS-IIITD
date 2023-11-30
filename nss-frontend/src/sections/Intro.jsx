@@ -80,7 +80,7 @@ const Intro = () => {
         /> 
       */}
 
-        <div className='xl:absolute xl:ml-[55%] xl:w-[50%]'>
+        <div className='xl:absolute xl:ml-[55%] xl:w-[843px]'>
           <div className='relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-cover bg-center' style={{ backgroundImage: `url(${bigCard})` }}>
             <br /><br /><br /><br /><br /><br />
           <div className='flex sm:gap-6 sm:mt-[50px] gap-4 absolute -bottom-[5%] max-sm:px-6'>
