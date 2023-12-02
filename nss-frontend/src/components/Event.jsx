@@ -2,14 +2,28 @@ import React from 'react'
 import { shoe8 } from "../assets/images";
 import { Button } from "../components";
 import { Link } from 'react-router-dom';
+import "./event.css";
 const Event = ({eventHeading, eventShortDescription, eventId, eventImage, leftRight,eventDate, organizer}) => {
-    console.log(leftRight);
   return (
+    
     <>
-    {!leftRight && (
+      <div className="card " style={{ backgroundImage: `url(${eventImage})` }}>
+        <div className="card-content">
+          <h2 className="card-title font-palanquin">{eventHeading}</h2>
+          <p className="card-body font-palanquin">
+            {eventShortDescription}
+          </p>
+          <Link to={`/events/${eventId}`} className="bg-coral-red font-palanquin text-white button">
+            Dive In
+          </Link>
+        </div>
+      </div>
+      
+      
+    {/* {!leftRight && (
     <section
       id='about-us'
-      className='flex bg-rose-200 justify-between items-center gap-10 w-full max-container'
+      className='flex bg-rose-200 p-5 rounded-xl justify-between items-center gap-10 w-full max-container'
     >
       <div className='flex flex-1 flex-col'>
         <h2 className='font-palanquin text-4xl lg:max-w-lg font-bold'>
@@ -45,7 +59,7 @@ const Event = ({eventHeading, eventShortDescription, eventId, eventImage, leftRi
     {leftRight && (
     <section
       id='about-us'
-      className='flex justify-between items-center max-lg:flex-col gap-[25%] w-full max-container'
+      className='flex justify-between bg-[#e2e0e9] p-5 rounded-xl  items-center max-lg:flex-col gap-[25%] w-full max-container'
     >
         <div className='xl:flex-1 hidden xl:flex xl:justify-center xl:items-center lg:flex-1 lg:flex lg:justify-center lg:items-center'>
         <img
@@ -75,7 +89,7 @@ const Event = ({eventHeading, eventShortDescription, eventId, eventImage, leftRi
     </section>
     )}
     {leftRight && (<>
-    <br /><br /><br /></>)}
+    <br /><br /><br /></>)} */}
       </>
   )
 }

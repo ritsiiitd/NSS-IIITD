@@ -3,11 +3,23 @@ import Navbar from "./Navbar";
 import Button from "./Button";
 import SmallCard from "./SmallCard";
 import Event from "./Event";
+import CountBox from "./CountBox";
+import CustomButton from "./CustomButton";
+import Loader from "./Loader";
+import TestimonialCard from "./TestimonialCard";
+import Social from "./Social";
+import Dept from "./Dept";
 
 
 export{
     Navbar,
     Button,
     Event,
-    SmallCard
+    SmallCard,
+    CustomButton,
+    CountBox,
+    Loader,
+    TestimonialCard,
+    Social,
+    Dept
 }

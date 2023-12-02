@@ -2,9 +2,9 @@ import { facebook, instagram, shieldTick, support, truckFast, twitter } from "..
 import { IIITD_1,IIITD_2,IIITD_3, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
 
 export const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about-us", label: "About Us" },
-    { href: "#gallery", label: "Gallery" },
+    { href: "/", label: "Home" },
+    { href: "/about-us", label: "About Us" },
+    { href: "/gallery", label: "Gallery" },
     { href: "#contact-us", label: "Contact Us" },
 ];
 
@@ -94,19 +94,19 @@ export const footerLinks = [
     {
         title: "Useful Links",
         links: [
-            { name: "Gallery", link: "/" },
-            { name: "Testimonials", link: "/" },
+            { name: "Gallery", link: "/Gallery" },
+            { name: "Testimonials", link: "/Testimonial" },
 
-            { name: "Blog", link: "/" },
-            { name: "Volunteer login", link: "/" },
+            { name: "Blog", link: "/Subscribe" },
+            
             
         ],
     },
     {
         title: "Help",
         links: [
-            { name: "About us", link: "/" },
-            { name: "FAQs", link: "/" },
+            { name: "About us", link: "/About_us" },
+            { name: "FAQs", link: "/FAQs" },
             { name: "How it works", link: "/" },
             { name: "Privacy policy", link: "/" },
         ],

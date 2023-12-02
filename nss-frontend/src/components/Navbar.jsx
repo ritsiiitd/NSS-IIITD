@@ -2,11 +2,28 @@ import { hamburger } from "../assets/icons";
 import { NSS } from "../assets/images";
 import { navLinks } from "../constants";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useState, useEffect } from 'react';
 const Nav = () => {
   const {isLoading,error} = useAuth0();
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
+  const [scrolled, setScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className='padding-x py-8 absolute z-10 w-full'>
+    <header className={`bg-black sticky top-0 bg-gradient-to-bl py-3 z-50 w-[100%] ${scrolled ? 'opacity-30' : '' } ${isHovered ? 'opacity-80' : ''}`} onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)} >
       <nav className='flex justify-between items-center max-container'>
         <a href='/'>
           <img
@@ -17,12 +34,12 @@ const Nav = () => {
             className='m-0 w-[50px] h-[40px]'
           />
         </a>
-        <ul className='flex-1 flex justify-center items-center gap-16 max-lg:hidden'>
+        <ul className='flex-1 flex justify-center  items-center gap-16 max-lg:hidden'>
           {navLinks.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className='font-montserrat leading-normal text-lg text-slate-gray'
+                className='font-montserrat leading-normal text-lg text-white'
               >
                 {item.label}
               </a>
