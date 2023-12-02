@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Gallery = new mongoose.Schema({
     eventName:{type:String, required:true},
-    organisations: [{
+    images: [{
         driveLink: String, // image
     }],
 });

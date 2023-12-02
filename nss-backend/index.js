@@ -10,6 +10,8 @@ import departmentRoutes from './routes/departmentRoutes.js';
 import testimoniesRoutes from './routes/testimoniesRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import faqRoutes from './routes/faqRoutes.js';
+import galleryRoutes from './routes/galleryRoutes.js';
+// const nodemailer = require('nodemailer');
 
 dotenv.config();
 
@@ -26,6 +28,7 @@ app.use('/api/v1/departments',departmentRoutes);
 app.use('/api/v1/testimonies',testimoniesRoutes);
 app.use('/api/v1/blogs',blogRoutes);
 app.use('/api/v1/faqs',faqRoutes);
+app.use('/api/v1/galleries',galleryRoutes);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");
