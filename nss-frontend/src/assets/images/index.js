@@ -8,6 +8,8 @@ import NSS from './NSS.png'
 import NSS_logo from './NSS_logo.jpg'
 import IIIT_Delhi from './IIIT_Delhi.png'
 import nssIntroVideo from './nssIntroVideo.mp4'
+import contact from './contact.jpg'
+import wall from './wall.jpg'
 
 import donation1 from './donation1.png'
 import education from './education.png'
@@ -64,5 +66,7 @@ export {
     thumbnailBackground,
     thumbnailShoe1,
     thumbnailShoe2,
-    thumbnailShoe3
+    thumbnailShoe3,
+    contact,
+    wall
 }
