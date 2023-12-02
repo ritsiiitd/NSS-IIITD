@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import './contact.css';
-
+import emailjs from '@emailjs/browser';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import { contact, wall } from '../assets/images';
 
 const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID;
 const tempalteID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
 const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
-
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const ContactForm = () => {
   const [result, showResult] = useState(false);
@@ -96,6 +101,17 @@ const ContactForm = () => {
     
   </div>
 
+      <Snackbar
+        open={result}
+        autoHideDuration={5000} // Adjust the duration (in milliseconds) as needed
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          <AlertTitle>Success</AlertTitle>
+          Your message has been sent successfully — <strong>Thank you!</strong>
+        </Alert>
+      </Snackbar>
     </>
   );
 };
