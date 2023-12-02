@@ -3,7 +3,7 @@ import {Navbar} from './components'
 import { BrowserRouter,Link,Route,Routes} from 'react-router-dom';
 import {Home,EventPage,Gallery,ContactForm} from './Pages';
 import { useAuth0 } from '@auth0/auth0-react';
-import {Teams} from './Pages';
+
 // import ContactForm from './Pages';
 
 const App = () => (
@@ -18,7 +18,7 @@ const App = () => (
         <Route path="/gallery" element={<Gallery/>}></Route>
         <Route path="/about-us" element={<About/>}></Route>
         <Route path="/contact-us" element={<ContactForm/>}></Route>
-        <Route path="/team" element={<Teams/>}></Route>
+        {/* <Route path="/team" element={<Teams/>}></Route> */}
         
         {/* :eventId is a URL parameter that can be used to identify the specific event */}
       </Routes>

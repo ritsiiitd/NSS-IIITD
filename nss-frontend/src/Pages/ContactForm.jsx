@@ -3,6 +3,9 @@ import './contact.css';
 
 import { contact, wall } from '../assets/images';
 
+const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID;
+const tempalteID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
 
 
@@ -13,7 +16,23 @@ const ContactForm = () => {
     showResult(false);
   };
 
- 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(serviceID, tempalteID, e.target, publicKey)
+      .then(
+        (result) => {
+          console.log(serviceID, tempalteID, e.target);
+          console.log(result.text);
+          showResult(true);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
 
   return (
     <>
@@ -25,8 +44,8 @@ const ContactForm = () => {
         <div className="row align-items-center justify-content-center">
           <div className="col-md-7 py-5 bg-black rounded-4 bg-opacity-50">
             <h3 className='text-[30px] font-palanquin text-white'>Get in touch</h3>
-            <p className="mt-2 mb-5 font-palanquin">Send us your query using this form and we will get back to you!</p>
-            <form action="#">
+            <p className="mt-2 mb-5 font-palanquin text-[#b3b3b3]">Send us your query using this form and we will get back to you!</p>
+            <form action="#" onSubmit={sendEmail}>
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group first">
@@ -77,7 +96,6 @@ const ContactForm = () => {
     
   </div>
 
-      
     </>
   );
 };
