@@ -9,6 +9,7 @@ import Loader from "./Loader";
 import TestimonialCard from "./TestimonialCard";
 import Social from "./Social";
 import Dept from "./Dept";
+import Polaroid from "./Polaroid";
 
 
 export{
@@ -21,5 +22,6 @@ export{
     Loader,
     TestimonialCard,
     Social,
-    Dept
+    Dept,
+    Polaroid
 }

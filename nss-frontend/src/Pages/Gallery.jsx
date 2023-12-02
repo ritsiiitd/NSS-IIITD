@@ -1,131 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Gallery.css';
+import Polaroid from '../components/Polaroid';
 
 const Gallery = () => {
+
+  const [allGalleries,setGalleries] = useState([{
+    eventName:'',
+    images:[]
+  }]);
+
+  useEffect(()=>{
+    const fetchGalleries = async() => {
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/galleries',{
+          method:'GET',
+          headers:{
+            'Content-Type':'application/json',
+          },
+        })
+        if(response.ok){
+          const result = await response.json();
+          console.log(result);
+          setGalleries(result.data);
+        }
+      } catch (error) {
+        
+      }
+    }
+    fetchGalleries();
+  },[]);
+
   return (
     <div className="container shadow-5">
       <div id="photography-index-page" className="margin-top-25">
         <h5 className="page-title text-center"> Gallery </h5>
         <br />
+        {/* <div>{allGalleries[0].eventName}</div> */}
+        {/* <div>{allGalleries[1].eventName}</div> */}
         <div className="row multi-columns-row">
           {/* Add your gallery items here */}
           {/* Example for one gallery item */}
-          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 padding-top-30 padding-bottom-30 margin-top-30">
-            <a href="{{post.url}}" title="{{post.title}}">
-              <span className="album block">
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "sign.jpg" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/251/251/Event1/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/252/252/Event1/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/253/253/Event1/')" }}>&nbsp;</span>
-                </span>
-                <span className="link">Event1 </span>
-              </span>
-            </a>
-          </div>
-
-          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 padding-top-30 padding-bottom-30 margin-top-30">
-            <a href="{{post.url}}" title="{{post.title}}">
-              <span className="album block">
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "sign.jpg" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/251/251/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/252/252/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/253/253/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="link">Event2 </span>
-              </span>
-            </a>
-          </div>
-          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 padding-top-30 padding-bottom-30 margin-top-30">
-            <a href="{{post.url}}" title="{{post.title}}">
-              <span className="album block">
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "sign.jpg" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/251/251/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/252/252/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/253/253/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="link">Event2 </span>
-              </span>
-            </a>
-          </div>
-          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 padding-top-30 padding-bottom-30 margin-top-30">
-            <a href="{{post.url}}" title="{{post.title}}">
-              <span className="album block">
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "sign.jpg" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/251/251/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/252/252/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/253/253/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="link">Event2 </span>
-              </span>
-            </a>
-          </div>
-          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 padding-top-30 padding-bottom-30 margin-top-30">
-            <a href="{{post.url}}" title="{{post.title}}">
-              <span className="album block">
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "sign.jpg" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/251/251/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/252/252/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/253/253/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="link">Event2 </span>
-              </span>
-            </a>
-          </div>
-          <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 padding-top-30 padding-bottom-30 margin-top-30">
-            <a href="{{post.url}}" title="{{post.title}}">
-              <span className="album block">
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "sign.jpg" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/251/251/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/252/252/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="thumb">
-                  <span className="polaroid shadow-5" style={{ backgroundImage: "url('http://lorempixel.com/253/253/Event2/')" }}>&nbsp;</span>
-                </span>
-                <span className="link">Event2 </span>
-              </span>
-            </a>
-          </div>
-
+          
+          {allGalleries.map((gallery, index) => (
+            <React.Fragment key={index}>
+              <Polaroid eventName={gallery.eventName} key={gallery.eventName} />
+            </React.Fragment>
+          ))}
+        
           {/* End of gallery item */}
         </div>
       </div>
