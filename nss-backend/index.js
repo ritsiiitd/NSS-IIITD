@@ -13,6 +13,7 @@ import faqRoutes from './routes/faqRoutes.js';
 import galleryRoutes from './routes/galleryRoutes.js';
 import galleryPageRoutes from './routes/galleryPageRoutes.js';
 import collabRoutes from './routes/collabRoutes.js';
+import teamRoutes from './routes/teamRoutes.js';
 // const nodemailer = require('nodemailer');
 
 dotenv.config();
@@ -33,6 +34,7 @@ app.use('/api/v1/blogs',blogRoutes);
 app.use('/api/v1/faqs',faqRoutes);
 app.use('/api/v1/galleries',galleryRoutes);
 app.use('/api/v1/collaborationList',collabRoutes);
+app.use('/api/v1/nssTeam',teamRoutes);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");
