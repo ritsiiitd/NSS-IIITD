@@ -11,12 +11,12 @@ const Nav = () => {
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  // const isMobile = window.innerWidth <= 767;
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
       setScrolled(isScrolled);
     };
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -67,9 +67,13 @@ const Nav = () => {
           {/* <span>/</span>
           <a href='/'>Explore now</a> */}
         </div>}
-        <div className='max-lg:hidden sm:block lg:hidden'>
-          {/* <img src={hamburger} alt='hamburger icon' width={25} height={25} /> */}
-          <Hamburger/>
+        <div>
+        
+            <div className='sm:block xs:block lg:hidden'>
+              <Hamburger />
+            </div>
+          
+          {/* Other content of your component */}
         </div>
       </nav>
     </header>
