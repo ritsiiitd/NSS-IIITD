@@ -6,6 +6,7 @@ export const navLinks = [
     { href: "/about-us", label: "About Us" },
     { href: "/gallery", label: "Gallery" },
     { href: "/contact-us", label: "Contact Us" },
+    { href: "/team", label: "Team"},
 ];
 
 export const IIITDImages = [

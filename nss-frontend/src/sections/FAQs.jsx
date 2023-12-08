@@ -48,7 +48,7 @@ const FAQs = () => {
             <br />
           </div>
           {expandedId === faq.id && (
-            <div className="text-zinc-800 text-lg leading-6 mt-8 max-md:max-w-full">
+            <div className="text-zinc-800 font-palanquin text-lg leading-8 mt-8 max-md:max-w-full">
             No. All tobacco products have risks but comparing hookah to
             cigarettes is erroneous and misleading.
             <br />
