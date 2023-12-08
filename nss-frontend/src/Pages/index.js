@@ -4,6 +4,7 @@ import EventPage from "./EventPage";
 import Gallery from "./Gallery";
 import ContactForm from "./ContactForm";
 import GalleryPage from "./GalleryPage";
+import TeamSection from "./TeamSection";
 // import Teams from "./Teams";
 
 export{
@@ -11,5 +12,6 @@ export{
     EventPage,
     Gallery,
     ContactForm,
-    GalleryPage
+    GalleryPage,
+    TeamSection
 }
