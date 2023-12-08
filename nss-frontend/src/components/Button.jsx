@@ -4,10 +4,10 @@ const Button = ({
     backgroundColor,
     textColor,
     borderColor,
-    fullWidth,
+    fullWidth,click
   }) => {
     return (
-      <button
+      <button onClick={click}
         className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none
         ${
           backgroundColor
