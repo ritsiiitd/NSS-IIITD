@@ -10,6 +10,7 @@ import IIIT_Delhi from './IIIT_Delhi.png'
 import nssIntroVideo from './nssIntroVideo.mp4'
 import contact from './contact.jpg'
 import wall from './wall.jpg'
+import download from './download.png'
 
 import donation1 from './donation1.png'
 import education from './education.png'
@@ -47,6 +48,7 @@ export {
     NSS,
     NSS_logo,
     IIIT_Delhi,
+    download,
 
     nssIntroVideo,
     customer1,

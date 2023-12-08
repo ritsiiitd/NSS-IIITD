@@ -10,7 +10,8 @@ import TestimonialCard from "./TestimonialCard";
 import Social from "./Social";
 import Dept from "./Dept";
 import Polaroid from "./Polaroid";
-
+import Card from './Card.jsx'
+import FormField from './FormField.jsx'
 
 export{
     Navbar,
@@ -23,5 +24,5 @@ export{
     TestimonialCard,
     Social,
     Dept,
-    Polaroid
+    Polaroid,Card,FormField
 }

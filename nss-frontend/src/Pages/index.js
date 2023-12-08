@@ -3,11 +3,13 @@ import Home from "./Home";
 import EventPage from "./EventPage";
 import Gallery from "./Gallery";
 import ContactForm from "./ContactForm";
+import GalleryPage from "./GalleryPage";
 // import Teams from "./Teams";
 
 export{
     Home,
     EventPage,
     Gallery,
-    ContactForm
+    ContactForm,
+    GalleryPage
 }
