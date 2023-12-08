@@ -62,7 +62,7 @@ const GalleryPage = () => {
   }
 
   return (
-    <section className='sm:p-8 p-4 w-full bg-[#002626] max-w-7xl mx-auto'>
+    <section className='sm:p-8 p-4 w-full bg-[#002626] max-w-10xl mx-auto'>
       <div>
         <h1 className='font-extrabold text-[#AAAAAA]'>{saved?.eventName}</h1>
         <p className='mt-2 text-[14px] max-w-[500px] text-[#AAAAAA]'>
