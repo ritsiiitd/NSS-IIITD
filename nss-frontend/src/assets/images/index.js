@@ -11,6 +11,10 @@ import nssIntroVideo from './nssIntroVideo.mp4'
 import contact from './contact.jpg'
 import wall from './wall.jpg'
 import download from './download.png'
+import about1 from './about1.jpg'
+import about2 from './about2.jpg'
+import about3 from './about3.jpg'
+import about4 from './about4.jpg'
 
 import donation1 from './donation1.png'
 import education from './education.png'
@@ -58,6 +62,11 @@ export {
 
     footerLogo,
     headerLogo,
+
+    about1,
+    about2,
+    about3,
+    about4,
 
     offer,
     shoe4,
