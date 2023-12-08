@@ -37,6 +37,7 @@ import thumbnailBackground from './thumbnail-background.svg'
 import thumbnailShoe1 from './thumbnail-shoe1.svg'
 import thumbnailShoe2 from './thumbnail-shoe2.svg'
 import thumbnailShoe3 from './thumbnail-shoe3.svg'
+import logoutIcon from './logout.png'
 
 export {
     bigShoe1,
@@ -70,5 +71,5 @@ export {
     thumbnailShoe2,
     thumbnailShoe3,
     contact,
-    wall
+    wall,logoutIcon
 }
