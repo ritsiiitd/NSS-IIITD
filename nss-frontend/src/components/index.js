@@ -13,6 +13,7 @@ import Polaroid from "./Polaroid";
 import Card from './Card.jsx'
 import FormField from './FormField.jsx'
 import Hamburger from './Hamburger.jsx'
+import Popup from './Popup.jsx'
 
 export{
     Navbar,
@@ -26,5 +27,5 @@ export{
     Social,
     Dept,
     Polaroid,Card,FormField,
-    Hamburger
+    Hamburger,Popup
 }
