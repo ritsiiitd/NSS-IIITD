@@ -1,5 +1,6 @@
+import { Hamburger } from ".";
 import { hamburger } from "../assets/icons";
-import { NSS } from "../assets/images";
+import { NSS, logoutIcon } from "../assets/images";
 import { navLinks } from "../constants";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from 'react';
@@ -51,21 +52,24 @@ const Nav = () => {
         {error && <p>Authentication Error</p>}
         {!error && isLoading && <p>Loading....</p>}
          {!error && !isLoading && !isAuthenticated && <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
-          <button onClick={()=>loginWithRedirect()}>
-            Login / Sign up
-          </button>
+         <button onClick={()=>loginWithRedirect()} type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Login / Signup
+            </button>
           {/* <span>/</span>
           <a href='/'>Explore now</a> */}
         </div>}
          {!error && !isLoading && isAuthenticated && <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
-          <button onClick={()=>logout()}>
-            {user.given_name} / Sign out
-          </button>
+         <button  onClick={()=>logout()} type="button" className="flex gap-2 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                
+                <img src={logoutIcon} alt="" height='20px' width='20px' />
+                {user.given_name}
+            </button>
           {/* <span>/</span>
           <a href='/'>Explore now</a> */}
         </div>}
-        <div className='hidden max-lg:block'>
-          <img src={hamburger} alt='hamburger icon' width={25} height={25} />
+        <div className='max-lg:hidden sm:block lg:hidden'>
+          {/* <img src={hamburger} alt='hamburger icon' width={25} height={25} /> */}
+          <Hamburger/>
         </div>
       </nav>
     </header>
