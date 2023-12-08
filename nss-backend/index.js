@@ -11,6 +11,7 @@ import testimoniesRoutes from './routes/testimoniesRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import faqRoutes from './routes/faqRoutes.js';
 import galleryRoutes from './routes/galleryRoutes.js';
+import galleryPageRoutes from './routes/galleryPageRoutes.js';
 // const nodemailer = require('nodemailer');
 
 dotenv.config();
@@ -23,6 +24,7 @@ app.use(express.json({limit:'50mb'})); //configuring Express to parse incoming J
 app.use('/api/v1/static',staticRoutes);
 app.use('/api/v1/allEvents',eventRoutes);
 app.use('/api/v1/eventPage',eventPageRoutes);
+app.use('/api/v1/galleryPage',galleryPageRoutes);
 app.use('/api/v1/registerVolunteer',volunteerRegisterRoutes);
 app.use('/api/v1/departments',departmentRoutes);
 app.use('/api/v1/testimonies',testimoniesRoutes);

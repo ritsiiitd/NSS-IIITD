@@ -3,6 +3,8 @@ import { NSS } from "../assets/images";
 import { navLinks } from "../constants";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
+
 const Nav = () => {
   const {isLoading,error} = useAuth0();
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
@@ -25,7 +27,7 @@ const Nav = () => {
     <header className={`bg-black sticky top-0 bg-gradient-to-bl py-3 z-50 w-[100%] ${scrolled ? 'opacity-30' : '' } ${isHovered ? 'opacity-80' : ''}`} onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)} >
       <nav className='flex justify-between items-center max-container'>
-        <a href='/'>
+        <Link to='/'>
           <img
             src={NSS}
             alt='logo'
@@ -33,16 +35,16 @@ const Nav = () => {
             height={40}
             className='m-0 w-[50px] h-[40px]'
           />
-        </a>
+        </Link>
         <ul className='flex-1 flex justify-center  items-center gap-16 max-lg:hidden'>
           {navLinks.map((item) => (
             <li key={item.label}>
-              <a
-                href={item.href}
+              <Link
+                to={item.href}
                 className='font-montserrat leading-normal text-lg text-white'
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

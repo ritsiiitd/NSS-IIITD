@@ -43,7 +43,7 @@ const Gallery = () => {
           
           {allGalleries.map((gallery, index) => (
             <React.Fragment key={index}>
-              <Polaroid eventName={gallery.eventName} key={gallery.eventName} />
+              <Polaroid eventName={gallery.eventName} galleryId={gallery._id} key={gallery._id} photos={gallery.images} />
             </React.Fragment>
           ))}
         
