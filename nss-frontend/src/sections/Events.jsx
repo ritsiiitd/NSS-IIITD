@@ -85,7 +85,7 @@ const Events = () => {
         className="text-black font-palanquin text-center text-[200%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
         style={{ verticalAlign: 'bottom' }}
       >
-        upcoming &nbsp;
+        &nbsp;
       </div>
 
       <div
