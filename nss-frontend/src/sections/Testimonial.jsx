@@ -1,9 +1,45 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
 import { TestimonialCard } from "../components";
 
 export default class AutoPlay extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      team: [],
+    };
+  }
+
+  componentDidMount() {
+    this.fetchTeam();
+  }
+
+  fetchTeam() {
+    fetch("https://nss-iiitd-backend.onrender.com/api/v1/testimonies", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Failed to fetch team");
+        }
+      })
+      .then((result) => {
+        this.setState({ team: result.data });
+        console.log("Testimonies data",result.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
   render() {
+    const { team } = this.state;
     const settings = {
       dots: true,
       infinite: true,
@@ -27,12 +63,12 @@ export default class AutoPlay extends Component {
       
         <div className="mt-3">
           <Slider {...settings}>
-              <TestimonialCard />
-              <TestimonialCard />
-              <TestimonialCard />
-              <TestimonialCard />
-              <TestimonialCard />
-              <TestimonialCard />
+              {/* <TestimonialCard /> */}
+              {team.map((testimonial) => (
+                <TestimonialCard key={testimonial._id} data={testimonial} />
+              ))}
+              
+              
           </Slider>
         </div>
       </div>

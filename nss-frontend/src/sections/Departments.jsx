@@ -9,7 +9,7 @@ const Departments = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/collaborationList', {
+        const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/collaborationList', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

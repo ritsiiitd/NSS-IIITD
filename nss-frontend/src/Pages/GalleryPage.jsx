@@ -27,7 +27,7 @@ const GalleryPage = () => {
 
   const fetchGallery = async() => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/galleryPage/${galleryId}`,{
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/galleryPage/${galleryId}`,{
         method:'GET',
         headers:{
           'Content-Type':'application/json',
@@ -62,7 +62,7 @@ const GalleryPage = () => {
   }
 
   return (
-    <section className='sm:p-8 p-4 w-full bg-[#002626] max-w-7xl mx-auto'>
+    <section className='sm:p-8 p-4 w-full bg-[#002626] max-w-10xl mx-auto'>
       <div>
         <h1 className='font-extrabold text-[#AAAAAA]'>{saved?.eventName}</h1>
         <p className='mt-2 text-[14px] max-w-[500px] text-[#AAAAAA]'>

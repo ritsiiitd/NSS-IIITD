@@ -1,4 +1,6 @@
-
+body{
+    background:#eee;
+    }
     .single_advisor_profile {
         position: relative;
         margin-bottom: 50px;

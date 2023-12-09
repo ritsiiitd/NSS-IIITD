@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
-import { useState } from "react";
+import React, { useEffect,useState } from 'react'
+// import { useState } from "react";
 import { Button, SmallCard } from "../components";
 import {arrowRight} from '../assets/icons'
 import { IIITDImages} from "../constants";
 import { IIITD_1 } from '../assets/images'
 import {Home} from '../Pages';
+import { Link, useNavigate } from 'react-router-dom';
 const Intro = () => {
   const [bigCard, setbigCard] = useState(IIITD_1);
   const [statistics,setStatistics] = useState([
@@ -12,10 +13,16 @@ const Intro = () => {
       { value: '5+', stat: 'Collaborations' },
       { value: '2+', stat: 'Initiatives' },
   ]);
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    // Navigate to the 'Events' section
+    navigate('/Events');
+  };
   useEffect(()=>{
     const fetchStats = async() => {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/static',{
+        const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/static',{
           method:'GET',
           headers:{
             'Content-Type':'application/json',
@@ -39,7 +46,7 @@ const Intro = () => {
     >
       <div className='relative xl:w-2/5 flex flex-col xl:mr-[60%] justify-center items-start w-full  max-xl:padding-x pt-[50px]'>
         <p className='text-xl font-montserrat text-coral-red'>
-          Our Summer collections
+          Welcome to
         </p>
         <h1 className='mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold'>
           <span className='xl:bg-transparent xl:whitespace-nowrap relative z-10 pr-10'>
@@ -56,7 +63,7 @@ const Intro = () => {
           Register as volunteer
         </p>
 
-        <Button label="Discover" iconURL={arrowRight}/>
+        <Button label="Discover" iconURL={arrowRight} click={handleButtonClick}/>
 
         <div className='flex justify-start items-start flex-wrap w-full mt-20 gap-16'>
           {statistics.map((stat, index) => (

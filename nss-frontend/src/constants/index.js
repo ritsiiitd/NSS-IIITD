@@ -106,7 +106,7 @@ export const footerLinks = [
     {
         title: "Help",
         links: [
-            { name: "About us", link: "/About_us" },
+            { name: "About us", link: "/about-us" },
             { name: "FAQs", link: "/FAQs" },
             { name: "How it works", link: "/" },
             { name: "Privacy policy", link: "/" },
@@ -122,7 +122,7 @@ export const footerLinks = [
 ];
 
 export const socialMedia = [
-    { src: facebook, alt: "facebook logo" },
-    { src: twitter, alt: "twitter logo" },
-    { src: instagram, alt: "instagram logo" },
+    { href:"#" ,src: facebook, alt: "facebook logo" },
+    { href:"#" ,src: twitter, alt: "twitter logo" },
+    { href:"#", src: instagram, alt: "instagram logo" },
 ];

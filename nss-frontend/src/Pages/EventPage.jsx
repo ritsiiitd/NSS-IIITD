@@ -31,9 +31,26 @@ const EventPage = () => {
     return new Intl.DateTimeFormat('en-US', options).format(date);
   }
 
+
+  function getDaysUntilDate(targetDate) {
+    // Parse the target date string into a Date object
+    const targetDateTime = new Date(targetDate);
+  
+    // Get the current date
+    const currentDate = new Date();
+  
+    // Calculate the difference in milliseconds
+    const timeDifference = targetDateTime.getTime() - currentDate.getTime();
+  
+    // Calculate the number of days
+    const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+  
+    return daysDifference;
+  }
+
   const registerVolunteer = async () =>{
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/registerVolunteer/${eventId}`, {
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/registerVolunteer/${eventId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +77,7 @@ const EventPage = () => {
 
   const fetchEvents = async() => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/eventPage/${eventId}`,{
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/eventPage/${eventId}`,{
         method:'GET',
         headers:{
           'Content-Type':'application/json',
@@ -69,6 +86,7 @@ const EventPage = () => {
       if(response.ok){
         const result = await response.json();
         setEvent(result.data);
+        console.log(result.data);
         setIsInitialized(true);
       }
     } catch (error) {
@@ -110,9 +128,9 @@ const EventPage = () => {
         </div>
 
         <div className='flex flex-wrap md:w-[150px] w-full justify-between gap-[30px]'>
-          <CountBox title="Days Left" value={2} />
+          <CountBox title="Days Left" value={getDaysUntilDate(event[0]?.date)} />
           <CountBox title={'No. of Volunteers'} value={event[0]?.volunteers.length} />
-          <CountBox title="Registeration deadline" value={5} />
+          <CountBox title="Registeration deadline" value={getDaysUntilDate(event[0]?.deadline)} />
         </div>
       </div>
 
@@ -161,7 +179,7 @@ const EventPage = () => {
           
         </div>
         
-        {isAuthenticated && !isUserVolunteer && <div className="flex-1">
+        {isAuthenticated && !isUserVolunteer && getDaysUntilDate(event[0]?.deadline)>=0 && <div className="flex-1">
           {/* <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>    */}
 
           <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
@@ -199,6 +217,24 @@ const EventPage = () => {
                 btnType="button"
                 title="Registered !!"
                 styles="w-full mt-[10px] bg-[#860A35]"
+              />
+            </div>
+          </div>
+        </div>}
+        {isAuthenticated && !isUserVolunteer && getDaysUntilDate(event[0]?.deadline)<0 && <div className="flex-1">
+          {/* <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>    */}
+
+          <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
+            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#808191]">
+              Volunteer Registration
+            </p>
+            <div className="mt-[10px]">
+        
+              
+              <CustomButton 
+                btnType="button"
+                title="Deadline Over !!"
+                styles="w-full mt-[10px] bg-[#860111]"
               />
             </div>
           </div>
