@@ -16,7 +16,7 @@ export default class AutoPlay extends Component {
   }
 
   fetchTeam() {
-    fetch("http://localhost:8080/api/v1/testimonies", {
+    fetch("https://nss-iiitd-backend.onrender.com/api/v1/testimonies", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

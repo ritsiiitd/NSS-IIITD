@@ -10,7 +10,7 @@ function TeamSection() {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/nssTeam', {
+        const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/nssTeam', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

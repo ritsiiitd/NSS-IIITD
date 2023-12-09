@@ -27,7 +27,7 @@ const GalleryPage = () => {
 
   const fetchGallery = async() => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/galleryPage/${galleryId}`,{
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/galleryPage/${galleryId}`,{
         method:'GET',
         headers:{
           'Content-Type':'application/json',

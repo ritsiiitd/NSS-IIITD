@@ -22,7 +22,7 @@ const Intro = () => {
   useEffect(()=>{
     const fetchStats = async() => {
       try {
-        const response = await fetch('http://localhost:8080/api/v1/static',{
+        const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/static',{
           method:'GET',
           headers:{
             'Content-Type':'application/json',

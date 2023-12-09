@@ -50,7 +50,7 @@ const EventPage = () => {
 
   const registerVolunteer = async () =>{
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/registerVolunteer/${eventId}`, {
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/registerVolunteer/${eventId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const EventPage = () => {
 
   const fetchEvents = async() => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/eventPage/${eventId}`,{
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/eventPage/${eventId}`,{
         method:'GET',
         headers:{
           'Content-Type':'application/json',
