@@ -7,9 +7,9 @@ const Dashboard = () => {
   const [showBlogForm, setShowBlogForm] = useState(false);
 
   const [blogFormData, setBlogFormData] = useState({
-    picture: '',
-    authorName: '',
-    topic: '',
+    photo: '',
+    author: '',
+    title: '',
     content: '',
   });
 
@@ -108,9 +108,9 @@ const Dashboard = () => {
       if (response.ok) {
         console.log('Event added successfully!');
         setBlogFormData({
-          picture: '',
-          authorName: '',
-          topic: '',
+          photo: '',
+          author: '',
+          title: '',
           content: '',
         });
         setShowEventForm(false); // Close the form after successful submission
@@ -419,37 +419,37 @@ const Dashboard = () => {
 
       <div style={blogFormStyle}>
         <form onSubmit={handleBlogFormSubmit}>
-          <label style={formLabelStyle} htmlFor="picture">
-            Picture:
+          <label style={formLabelStyle} htmlFor="photo">
+            Photo:
           </label>
           <input
             style={formInputStyle}
             type="text"
-            id="picture"
-            name="picture"
-            onChange={(e) => setBlogFormData({ ...blogFormData, picture: e.target.value })}
+            id="photo"
+            name="photo"
+            onChange={(e) => setBlogFormData({ ...blogFormData, photo: e.target.value })}
           />
 
-          <label style={formLabelStyle} htmlFor="authorName">
+          <label style={formLabelStyle} htmlFor="author">
             Author Name:
           </label>
           <input
             style={formInputStyle}
             type="text"
-            id="authorName"
-            name="authorName"
-            onChange={(e) => setBlogFormData({ ...blogFormData, authorName: e.target.value })}
+            id="author"
+            name="author"
+            onChange={(e) => setBlogFormData({ ...blogFormData, author: e.target.value })}
           />
 
-          <label style={formLabelStyle} htmlFor="topic">
+          <label style={formLabelStyle} htmlFor="title">
             Topic:
           </label>
           <input
             style={formInputStyle}
             type="text"
-            id="topic"
-            name="topic"
-            onChange={(e) => setBlogFormData({ ...blogFormData, topic: e.target.value })}
+            id="title"
+            name="title"
+            onChange={(e) => setBlogFormData({ ...blogFormData, title: e.target.value })}
           />
 
           <label style={formLabelStyle} htmlFor="content">
