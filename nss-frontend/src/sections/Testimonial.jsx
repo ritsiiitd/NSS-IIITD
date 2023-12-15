@@ -60,6 +60,10 @@ export default class AutoPlay extends Component {
             .
         </div>
       </div>
+      <div
+          className={`flex mb-[50px] flex-row justify-start ml-[-50px]'}`}
+          style={{ transition: 'margin-left 1.5s', borderBottom: '3px solid red' }}
+        ></div>
       
         <div className="mt-3">
           <Slider {...settings}>
@@ -71,6 +75,7 @@ export default class AutoPlay extends Component {
               
           </Slider>
         </div>
+        
       </div>
     );
   }

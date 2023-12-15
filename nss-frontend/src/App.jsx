@@ -17,6 +17,7 @@ const App = () => (
         <Route path="/:sectionId?" element={<Home/>}></Route>
         <Route path="/events/:eventId" element={<EventPage/>}></Route>
         <Route path="/galleryOf/:galleryId" element={<GalleryPage/>}></Route>
+        <Route path="/blog/:blogId" element={<BlogPost/>}></Route>
         <Route path="/gallery" element={<Gallery/>}></Route>
         <Route path="/about-us" element={<About/>}></Route>
         <Route path="/contact-us" element={<ContactForm/>}></Route>

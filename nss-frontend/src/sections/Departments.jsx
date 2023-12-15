@@ -32,9 +32,9 @@ const Departments = () => {
   }, []);
   return (
     <>
-     <div>
+     <div className='mt-[30px]'>
       <div
-        className={`flex flex-row justify-start ml-${animationCompleted ? '0' : '[-50px]'}`}
+        className={`flex flex-row justify-start ml-[10px] `}
         style={{ transition: 'margin-left 1.5s', borderBottom: '3px solid red' }}
       >
         
