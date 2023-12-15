@@ -5,7 +5,7 @@ import Departments from './Departments';
 import Events from './Events';
 import Footer from './Footer';
 import Statistics from './Statistics';
-import Subscribe from './Subscribe';
+import Subscribe from './Blogs';
 import Testimonial from './Testimonial';
 import FAQs from './FAQs';
 
