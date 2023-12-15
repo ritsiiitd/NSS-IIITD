@@ -31,13 +31,37 @@ const Gallery = () => {
   },[]);
 
   return (
-    <div className="container shadow-5">
+    <div className="mt-[69px] mb-4 container shadow-5">
       <div id="photography-index-page" className="margin-top-25">
-        <h5 className="page-title text-center"> Gallery </h5>
+      <div
+      className={`flex flex-row justify-start ml-'[-50px]'`}
+      style={{ transition: 'margin-left 1.5s', borderBottom: '3px solid red' }}
+    >
+      <div
+        className="text-black font-palanquin text-center text-[200%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        style={{ verticalAlign: 'bottom' }}
+      >
+        &nbsp;
+      </div>
+
+      <div
+        className="text-black font-palanquin text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        style={{ verticalAlign: 'bottom' }}
+      >
+        gallery&nbsp;
+      </div>
+
+      <div
+        className="text-center font-palanquin text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
+        style={{ verticalAlign: 'bottom' }}
+      >
+        .
+      </div>
+    </div>
         <br />
         {/* <div>{allGalleries[0].eventName}</div> */}
         {/* <div>{allGalleries[1].eventName}</div> */}
-        <div className="row multi-columns-row">
+        <div className="row mt-5 multi-columns-row">
           {/* Add your gallery items here */}
           {/* Example for one gallery item */}
           

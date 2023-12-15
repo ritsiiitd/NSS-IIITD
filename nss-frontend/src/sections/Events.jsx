@@ -106,14 +106,14 @@ const Events = () => {
     <div className="flex gap-[40px] flex-wrap justify-center">
       {allEvents.map(event => (
         <Event
-        key={event.eventID}
-        eventHeading={event.name}
-        eventShortDescription={event.title}
-        eventId={event.eventID}
-        eventImage={event.picture}
-        leftRight={event.eventID % 2 === 0}
-        // eventDate = {event.date}
-        organizer = {event.organiser}
+          key={event.eventID}
+          eventHeading={event.name}
+          eventShortDescription={event.title}
+          eventId={event.eventID}
+          eventImage={event.picture}
+          leftRight={event.eventID % 2 === 0}
+          // eventDate = {event.date}
+          organizer = {event.organiser}
         />
         ))}
     </div>

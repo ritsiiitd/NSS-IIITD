@@ -29,18 +29,19 @@
     left: 0;
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 500px;
   }
-  .body {
+  .author {
     background-color: white;
     bottom: 0;
     padding: 15px;
     position: absolute;
     width: 100%;
+    margin-left: 10%;
   }
   svg {
     height: inherit;
-    width: 100%;
+    width: 500px;
   }
   svg text {
     text-anchor: middle;
@@ -49,7 +50,7 @@
     fill: white;
   }
   svg .title {
-    font-size: 28px;
+    font-size: 50px;
     font-family: "Montserrat";
     letter-spacing: 5px;
   }

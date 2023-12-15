@@ -132,3 +132,12 @@ body{
     .single_advisor_profile:focus .single_advisor_details_info p {
         color: #ffffff;
     }
+
+    .blogTitle {
+        color: black; /* Default text color */
+        transition: color 0.5s; /* Smooth transition effect */
+      }
+      
+      .blogTitle:hover {
+        color: white; /* Text color on hover */
+      }

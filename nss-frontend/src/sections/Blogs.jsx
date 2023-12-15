@@ -3,13 +3,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import "../Pages/TeamSection.css"
+import { Link } from 'react-router-dom';
 // import { Subscribe } from '.';
 
 function Subscribe() {
-  const [team, setTeam] = useState([]);
+  const [blog, setblog] = useState([]);
 
   useEffect(() => {
-    const fetchTeam = async () => {
+    const fetchBlogs = async () => {
       try {
         const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/blogs', {
           method: 'GET',
@@ -20,17 +21,17 @@ function Subscribe() {
 
         if (response.ok) {
           const result = await response.json();
-          setTeam(result.data);
+          setblog(result.data);
           console.log(result.data);
         } else {
-          console.error('Failed to fetch team');
+          console.error('Failed to fetch blog');
         }
       } catch (error) {
         console.error('Error:', error);
       }
     };
 
-    fetchTeam();
+    fetchBlogs();
   }, []);
 
   return (
@@ -45,21 +46,24 @@ function Subscribe() {
         </Col>
       </Row>
       <Row className='flex justify-center items-center gap-6 mt-4'>
-        {/* Map through the team array */}
-        {team.map((advisor) => (
+        {/* Map through the blog array */}
+        {blog.map((advisor) => (
+          
           <Col key={advisor._id} xs={12} sm={6} lg={3}>
+            <Link to={`/blog/${advisor._id}`} style={{textDecoration:"none"}}>
             <div className=" bg-black single_advisor_profile wow fadeInUp">
               <div className="bg-black advisor_thumb">
                 <img src={advisor.photo} alt="" />
                 {/* Social Info */}
                 
               </div>
-              {/* Team Details */}
+              {/* blog Details */}
               <div className="single_advisor_details_info">
                 <h6>{advisor.author}</h6>
-                <p className="designation font-bold">{advisor.title}</p>
+                <p className="blogTitle font-bold">{advisor.title}</p>
               </div>
             </div>
+          </Link>
           </Col>
         ))}
       </Row>
