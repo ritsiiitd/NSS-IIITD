@@ -14,11 +14,11 @@ async function insertNewEvent() {
     // Create a new event instance
     const newEvent = new Event({
       eventID:22,
-      name:'Sustainable Solutions Showcase',
+      name:'Temporary event 2',
       organiser: 'NSS IIIT Delhi',
       venue: 'Online',
-      date: new Date('2023-10-02'), // Example date
-      deadline: new Date('2023-10-01'), // Example deadline
+      date: new Date('2024-02-02'), // Example date
+      deadline: new Date('2024-02-01'), // Example deadline
       volunteers: [], // Initialize with an empty array
       picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYkxW7o_lb0ng2eGo-Wh10B9RtbrIcLFcwaZ1SCvuBFtViYxxT0Tr8zED02yNQ-xOAGX0&usqp=CAU', // Example picture URL
       title: 'Dedicated to celebrating Gandhi Jayanti and supporting the Swachh Bharat Abhiyan initiative. ',
