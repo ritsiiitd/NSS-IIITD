@@ -24,7 +24,6 @@ const App = () => (
         <Route path="/team" element={<TeamSection/>}></Route>
         <Route path="/blog" element={<BlogPost/>}></Route>
         {/* <Route path="/team" element={<Teams/>}></Route> */}
-        
         {/* :eventId is a URL parameter that can be used to identify the specific event */}
       </Routes>
       

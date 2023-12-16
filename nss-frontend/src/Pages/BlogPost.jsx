@@ -9,7 +9,7 @@ const BlogPost = () => {
 
   const fetchBlog = async() => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/blogPage/${blogId}`,{
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/blogPage/${blogId}`,{
         method:'GET',
         headers:{
           'Content-Type':'application/json',
