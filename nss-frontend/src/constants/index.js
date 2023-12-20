@@ -1,13 +1,50 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
 import { IIITD_1,IIITD_2,IIITD_3, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
-
+import { createCampaign, dashboard, logout, payment, profile, withdraw } from '../assets';
 export const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about-us", label: "About Us" },
     { href: "/gallery", label: "Gallery" },
     { href: "/contact-us", label: "Contact Us" },
     { href: "/team", label: "Team"},
+    { href: "/admin", label: "Admin"},
 ];
+
+export const navlinksadmin = [
+    {
+      name: 'Home',
+      imgUrl: dashboard,
+      link: '/admin',
+    },
+    {
+      name: 'Events',
+      imgUrl: createCampaign,
+      link: '/admin/adminEvent',
+    },
+    {
+      name: 'FAQ',
+      imgUrl: payment,
+      link: '/adminFAQ',
+      disabled: true,
+    },
+    {
+      name: 'Testimonies',
+      imgUrl: withdraw,
+      link: '/adminTestimonies',
+      disabled: true,
+    },
+    {
+      name: 'Team',
+      imgUrl: profile,
+      link: '/adminTeam',
+    },
+    {
+      name: 'logout',
+      imgUrl: logout,
+      link: '/',
+      disabled: true,
+    },
+  ];
 
 export const IIITDImages = [
     {

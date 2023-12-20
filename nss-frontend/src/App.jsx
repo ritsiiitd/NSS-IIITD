@@ -1,8 +1,9 @@
 import {About,Departments,Events,Footer,Intro,Statistics,Subscribe,Testimonial} from './sections'
-import {Navbar} from './components'
+import {AdminEvent, Navbar} from './components'
 import { BrowserRouter,Link,Route,Routes} from 'react-router-dom';
 import {Home,EventPage,Gallery,ContactForm,GalleryPage,TeamSection, BlogPost} from './Pages';
 import { useAuth0 } from '@auth0/auth0-react';
+import {AdminDasboard} from './Pages';
 // import TeamSection from './Pages/TeamSection';
 
 // import ContactForm from './Pages';
@@ -23,6 +24,8 @@ const App = () => (
         <Route path="/contact-us" element={<ContactForm/>}></Route>
         <Route path="/team" element={<TeamSection/>}></Route>
         <Route path="/blog" element={<BlogPost/>}></Route>
+        <Route path="/admin/*" element={<AdminDasboard/>}></Route>
+        {/* <Route path="/adminEvent" element={<AdminEvent/>}></Route> */}
         {/* <Route path="/team" element={<Teams/>}></Route> */}
         {/* :eventId is a URL parameter that can be used to identify the specific event */}
       </Routes>

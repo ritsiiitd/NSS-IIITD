@@ -6,6 +6,7 @@ import ContactForm from "./ContactForm";
 import GalleryPage from "./GalleryPage";
 import TeamSection from "./TeamSection";
 import BlogPost from "./BlogPost";
+import AdminDasboard from "./AdminDasboard";
 // import Teams from "./Teams";
 
 export{
@@ -15,5 +16,6 @@ export{
     ContactForm,
     GalleryPage,
     TeamSection,
-    BlogPost
+    BlogPost,
+    AdminDasboard
 }

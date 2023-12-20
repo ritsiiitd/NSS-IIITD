@@ -17,6 +17,9 @@ import collabRoutes from './routes/collabRoutes.js';
 import teamRoutes from './routes/teamRoutes.js';
 // const nodemailer = require('nodemailer');
 
+import deleteEvent from './routes/deleteEvent.js';
+import addEventRoute from './routes/addEventRoute.js';
+
 dotenv.config();
 
 
@@ -37,6 +40,9 @@ app.use('/api/v1/faqs',faqRoutes);
 app.use('/api/v1/galleries',galleryRoutes);
 app.use('/api/v1/collaborationList',collabRoutes);
 app.use('/api/v1/nssTeam',teamRoutes);
+
+app.use('/api/v1/deleteEvent',deleteEvent);
+app.use('/api/v1/createEvent',addEventRoute);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");
