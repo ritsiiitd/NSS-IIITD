@@ -18,6 +18,11 @@ import Sidebar from './Sidebar.jsx'
 
 import AdminEvent from './admin/AdminEvent.jsx'
 import AdminBlog from './admin/AdminBlog.jsx'
+import AdminCollaborations from './admin/AdminCollaborations.jsx'
+import AdminFAQ from './admin/AdminFAQ.jsx'
+import AdminTestimonies from './admin/AdminTestimonies.jsx'
+import AdminGallery from './admin/AdminGallery.jsx'
+import AdminTeam from './admin/AdminTeam.jsx'
 
 export{
     Navbar,
@@ -33,5 +38,5 @@ export{
     Polaroid,Card,FormField,
     Hamburger,Popup,Sidebar,
     AdminEvent,
-    AdminBlog,
+    AdminBlog,AdminCollaborations,AdminFAQ,AdminGallery,AdminTeam,AdminTestimonies
 }

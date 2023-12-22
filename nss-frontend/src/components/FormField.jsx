@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormField = ({labelName,type,name,placeholder,value,handleChange}) => {
+const FormField = ({labelName,type,name,placeholder,value,handleChange,req}) => {
   return (
     <div>
       <div className='flex items-center gap-2 mb-2'>
@@ -16,7 +16,7 @@ const FormField = ({labelName,type,name,placeholder,value,handleChange}) => {
         value={value}
         id={name}
         onChange={handleChange}
-        required
+        required={req}
       />
     </div>
   )

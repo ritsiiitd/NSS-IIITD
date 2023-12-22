@@ -30,19 +30,30 @@ export const navlinksadmin = [
     {
       name: 'Testimonies',
       imgUrl: withdraw,
-      link: '/adminTestimonies',
-      disabled: true,
+      link: '/admin/adminTestimonies',
+      
     },
     {
       name: 'Team',
       imgUrl: profile,
-      link: '/adminTeam',
+      link: '/admin/adminTeam',
     },
     {
-      name: 'logout',
-      imgUrl: logout,
-      link: '/',
-      disabled: true,
+      name: 'Collaborations',
+      imgUrl: withdraw,
+      link: '/admin/adminCollaborations',
+      
+    },
+    {
+      name: 'Gallery',
+      imgUrl: withdraw,
+      link: '/admin/adminGallery',
+    
+    },
+    {
+      name: 'FAQs',
+      imgUrl: withdraw,
+      link: '/admin/adminFAQs',
     },
   ];
 
