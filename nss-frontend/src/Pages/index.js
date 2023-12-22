@@ -7,6 +7,8 @@ import GalleryPage from "./GalleryPage";
 import TeamSection from "./TeamSection";
 import BlogPost from "./BlogPost";
 import AdminDasboard from "./AdminDasboard";
+import AccessDenied from "./AccessDenied";
+// import Forbidden from "./forbidden";
 // import Teams from "./Teams";
 
 export{
@@ -17,5 +19,6 @@ export{
     GalleryPage,
     TeamSection,
     BlogPost,
-    AdminDasboard
+    AdminDasboard,
+    AccessDenied
 }

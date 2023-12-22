@@ -22,10 +22,10 @@ export const navlinksadmin = [
       link: '/admin/adminEvent',
     },
     {
-      name: 'FAQ',
+      name: 'Blogs',
       imgUrl: payment,
-      link: '/adminFAQ',
-      disabled: true,
+      link: '/admin/adminBlog',
+    //   disabled: true,
     },
     {
       name: 'Testimonies',

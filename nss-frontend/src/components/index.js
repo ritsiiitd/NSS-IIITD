@@ -15,7 +15,9 @@ import FormField from './FormField.jsx'
 import Hamburger from './Hamburger.jsx'
 import Popup from './Popup.jsx'
 import Sidebar from './Sidebar.jsx'
+
 import AdminEvent from './admin/AdminEvent.jsx'
+import AdminBlog from './admin/AdminBlog.jsx'
 
 export{
     Navbar,
@@ -30,5 +32,6 @@ export{
     Dept,
     Polaroid,Card,FormField,
     Hamburger,Popup,Sidebar,
-    AdminEvent
+    AdminEvent,
+    AdminBlog,
 }

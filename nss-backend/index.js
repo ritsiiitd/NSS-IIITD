@@ -18,7 +18,9 @@ import teamRoutes from './routes/teamRoutes.js';
 // const nodemailer = require('nodemailer');
 
 import deleteEvent from './routes/deleteEvent.js';
+import deleteBlogRoutes from './routes/deleteBlogRoutes.js';
 import addEventRoute from './routes/addEventRoute.js';
+import addBlogRoutes from './routes/addBlogRoutes.js';
 
 dotenv.config();
 
@@ -43,6 +45,8 @@ app.use('/api/v1/nssTeam',teamRoutes);
 
 app.use('/api/v1/deleteEvent',deleteEvent);
 app.use('/api/v1/createEvent',addEventRoute);
+app.use('/api/v1/createBlog',addBlogRoutes);
+app.use('/api/v1/deleteBlog',deleteBlogRoutes);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");
