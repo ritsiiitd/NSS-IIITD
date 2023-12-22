@@ -20,9 +20,11 @@ import teamRoutes from './routes/teamRoutes.js';
 import deleteEvent from './routes/deleteEvent.js';
 import deleteBlogRoutes from './routes/deleteBlogRoutes.js';
 import deleteTestimoniesRoutes from './routes/deleteTestimoniesRoutes.js';
+import deleteTeamRoutes from './routes/deleteTeamRoutes.js';
 import addEventRoute from './routes/addEventRoute.js';
 import addBlogRoutes from './routes/addBlogRoutes.js';
 import addTestimoniesRoutes from './routes/addTestimoniesRoutes.js';
+import addTeamRoutes from './routes/addTeamRoutes.js';
 
 dotenv.config();
 
@@ -45,12 +47,13 @@ app.use('/api/v1/galleries',galleryRoutes);
 app.use('/api/v1/collaborationList',collabRoutes);
 app.use('/api/v1/nssTeam',teamRoutes);
 
-app.use('/api/v1/deleteEvent',deleteEvent);
 app.use('/api/v1/createEvent',addEventRoute);
 app.use('/api/v1/createTestimonies',addTestimoniesRoutes);
 app.use('/api/v1/createBlog',addBlogRoutes);
+app.use('/api/v1/createTeam',addTeamRoutes);
 app.use('/api/v1/deleteBlog',deleteBlogRoutes);
-app.use('/api/v1/deleteBlog',deleteBlogRoutes);
+app.use('/api/v1/deleteEvent',deleteEvent);
+app.use('/api/v1/deleteTeam',deleteTeamRoutes);
 app.use('/api/v1/deleteTestimonies',deleteTestimoniesRoutes);
 
 app.get('/', async(req,res)=>{
