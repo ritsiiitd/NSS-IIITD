@@ -15,18 +15,19 @@ router.route('/').post(async(req,res)=>{
         const CollaborationData = req.body;
         // Create a new Collaboration instance
         const domain = CollaborationData.domain;
-        const newCollaboration = new Collaboration({
+        // console.log(CollaborationData);
+        const newCollaboration ={
         //   CollaborationID:22,
           name:CollaborationData.name,
           image: CollaborationData.image,
           desc: CollaborationData.desc,
-        });
-        console.log(CollaborationData);
+        };
+        // console.log(CollaborationData);
         const department = await Collaboration.findOne({ name: domain });
         department.organisations.push(newCollaboration);
         await department.save();
         const department2 = await Collaboration.findOne({ name: domain });
-        console.log(department2);
+        // console.log(department2);
         // Save the new Collaboration to the database
         const updatedCollaborations = await Collaboration.find();
         res.status(200).json({ success: true, data: updatedCollaborations });

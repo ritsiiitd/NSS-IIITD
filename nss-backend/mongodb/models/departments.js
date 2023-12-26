@@ -5,8 +5,8 @@ const Department = new mongoose.Schema({
     image:{type:String},
     organisations: [{
         image: { type: String },
-        name: { type: String },
         desc: { type: String },
+        name: { type: String },
     }],
 });
 
