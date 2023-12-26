@@ -27,7 +27,7 @@ const AdminEvent = () => {
         
         const deleteEvent = async(eventId) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/v1/deleteEvent/${eventId}`,{
+            const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/deleteEvent/${eventId}`,{
             method:'GET',
             headers:{
                 'Content-Type':'application/json',
@@ -86,7 +86,7 @@ const AdminEvent = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/createEvent', {
+      const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/createEvent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

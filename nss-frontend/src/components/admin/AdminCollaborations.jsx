@@ -100,7 +100,7 @@ const Popup = (props) => {
 
   const deleteCollaboration = async (departmentId, organizationId) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/deleteCollaboration/${departmentId}/${organizationId}`, {
+      const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/deleteCollaboration/${departmentId}/${organizationId}`, {
         method: 'GET', // Use DELETE method for deleting resources
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ const Popup = (props) => {
       e.preventDefault();
       console.log("form is",form);
       try {
-      const response = await fetch('http://localhost:8080/api/v1/createCollaboration', {
+      const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/createCollaboration', {
           method: 'POST',
           headers: {
           'Content-Type': 'application/json',

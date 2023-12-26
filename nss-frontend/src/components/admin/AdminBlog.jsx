@@ -47,7 +47,7 @@ const AdminBlog = () => {
 
   const deleteBlog = async(blogId) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/v1/deleteBlog/${blogId}`,{
+        const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/deleteBlog/${blogId}`,{
         method:'GET',
         headers:{
             'Content-Type':'application/json',
@@ -77,7 +77,7 @@ const AdminBlog = () => {
         e.preventDefault();
 
         try {
-        const response = await fetch('http://localhost:8080/api/v1/createBlog', {
+        const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/createBlog', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

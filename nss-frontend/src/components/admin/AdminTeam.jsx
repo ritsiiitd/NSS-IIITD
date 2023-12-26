@@ -47,7 +47,7 @@ const AdminTeam = () => {
 
   const deleteTeam = async(TeamId) => {
     try {
-        const response = await fetch(`http://localhost:8080/api/v1/deleteTeam/${TeamId}`,{
+        const response = await fetch(`https://nss-iiitd-backend.onrender.com/api/v1/deleteTeam/${TeamId}`,{
         method:'GET',
         headers:{
             'Content-Type':'application/json',
@@ -77,7 +77,7 @@ const AdminTeam = () => {
         e.preventDefault();
 
         try {
-        const response = await fetch('http://localhost:8080/api/v1/createTeam', {
+        const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/createTeam', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
