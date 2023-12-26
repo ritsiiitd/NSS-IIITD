@@ -24,6 +24,8 @@ const Nav = () => {
     };
   }, []);
 
+  console.log(user,user?.given_name,"AHHHHHHHHHHHHHHH");
+
   return (
     <header className={`bg-black sticky top-0 bg-gradient-to-bl py-3 z-50 w-[100%] ${scrolled ? 'opacity-30' : '' } ${isHovered ? 'opacity-80' : ''}`} onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)} >

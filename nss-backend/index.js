@@ -17,6 +17,17 @@ import collabRoutes from './routes/collabRoutes.js';
 import teamRoutes from './routes/teamRoutes.js';
 // const nodemailer = require('nodemailer');
 
+import deleteEvent from './routes/deleteEvent.js';
+import deleteBlogRoutes from './routes/deleteBlogRoutes.js';
+import deleteTestimoniesRoutes from './routes/deleteTestimoniesRoutes.js';
+import deleteTeamRoutes from './routes/deleteTeamRoutes.js';
+import deleteCollaborationRoutes from './routes/deleteCollaborationRoutes.js';
+import addEventRoute from './routes/addEventRoute.js';
+import addBlogRoutes from './routes/addBlogRoutes.js';
+import addTestimoniesRoutes from './routes/addTestimoniesRoutes.js';
+import addTeamRoutes from './routes/addTeamRoutes.js';
+import addCollaborationRoutes from './routes/addCollaborationRoutes.js';
+
 dotenv.config();
 
 
@@ -37,6 +48,17 @@ app.use('/api/v1/faqs',faqRoutes);
 app.use('/api/v1/galleries',galleryRoutes);
 app.use('/api/v1/collaborationList',collabRoutes);
 app.use('/api/v1/nssTeam',teamRoutes);
+
+app.use('/api/v1/createEvent',addEventRoute);
+app.use('/api/v1/createTestimonies',addTestimoniesRoutes);
+app.use('/api/v1/createBlog',addBlogRoutes);
+app.use('/api/v1/createTeam',addTeamRoutes);
+app.use('/api/v1/createCollaboration',addCollaborationRoutes);
+app.use('/api/v1/deleteBlog',deleteBlogRoutes);
+app.use('/api/v1/deleteEvent',deleteEvent);
+app.use('/api/v1/deleteTeam',deleteTeamRoutes);
+app.use('/api/v1/deleteTestimonies',deleteTestimoniesRoutes);
+app.use('/api/v1/deleteCollaboration',deleteCollaborationRoutes);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");

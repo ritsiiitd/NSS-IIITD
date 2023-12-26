@@ -14,6 +14,15 @@ import Card from './Card.jsx'
 import FormField from './FormField.jsx'
 import Hamburger from './Hamburger.jsx'
 import Popup from './Popup.jsx'
+import Sidebar from './Sidebar.jsx'
+
+import AdminEvent from './admin/AdminEvent.jsx'
+import AdminBlog from './admin/AdminBlog.jsx'
+import AdminCollaborations from './admin/AdminCollaborations.jsx'
+import AdminFAQ from './admin/AdminFAQ.jsx'
+import AdminTestimonies from './admin/AdminTestimonies.jsx'
+import AdminGallery from './admin/AdminGallery.jsx'
+import AdminTeam from './admin/AdminTeam.jsx'
 
 export{
     Navbar,
@@ -27,5 +36,7 @@ export{
     Social,
     Dept,
     Polaroid,Card,FormField,
-    Hamburger,Popup
+    Hamburger,Popup,Sidebar,
+    AdminEvent,
+    AdminBlog,AdminCollaborations,AdminFAQ,AdminGallery,AdminTeam,AdminTestimonies
 }

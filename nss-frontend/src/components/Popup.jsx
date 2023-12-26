@@ -19,7 +19,7 @@ const Popup = (props) => {
 
     return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {props.org.map((item, index) => (
+      {props?.org?.map((item, index) => (
         <React.Fragment key={index}>
           <ListItem alignItems="flex-start">
             <ListItemAvatar>

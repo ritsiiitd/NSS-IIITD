@@ -1,13 +1,61 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
 import { IIITD_1,IIITD_2,IIITD_3, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
-
+import { createCampaign, dashboard, logout, payment, profile, withdraw } from '../assets';
 export const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about-us", label: "About Us" },
     { href: "/gallery", label: "Gallery" },
     { href: "/contact-us", label: "Contact Us" },
     { href: "/team", label: "Team"},
+    { href: "/admin", label: "Admin"},
 ];
+
+export const navlinksadmin = [
+    {
+      name: 'Home',
+      imgUrl: dashboard,
+      link: '/admin',
+    },
+    {
+      name: 'Events',
+      imgUrl: createCampaign,
+      link: '/admin/adminEvent',
+    },
+    {
+      name: 'Blogs',
+      imgUrl: payment,
+      link: '/admin/adminBlog',
+    //   disabled: true,
+    },
+    {
+      name: 'Testimonies',
+      imgUrl: withdraw,
+      link: '/admin/adminTestimonies',
+      
+    },
+    {
+      name: 'Team',
+      imgUrl: profile,
+      link: '/admin/adminTeam',
+    },
+    {
+      name: 'Collaborations',
+      imgUrl: withdraw,
+      link: '/admin/adminCollaborations',
+      
+    },
+    {
+      name: 'Gallery',
+      imgUrl: withdraw,
+      link: '/admin/adminGallery',
+    
+    },
+    {
+      name: 'FAQs',
+      imgUrl: withdraw,
+      link: '/admin/adminFAQs',
+    },
+  ];
 
 export const IIITDImages = [
     {
