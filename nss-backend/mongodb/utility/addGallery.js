@@ -13,7 +13,7 @@ async function insertNewGallery() {
 
     // Create a new event instance
     const newgallery = new Gallery({
-      eventName:'Khadi Mahotsav - Totebag Painting Competition',
+      eventName:'Blood Donation Camp',
       images: [{driveLink: 'https://drive.google.com/drive/u/0/folders/1aiPV3kW1MkoQ5jWzpI2iWvnTfbAuoXsB'},], // Initialize with an empty array
     });
 

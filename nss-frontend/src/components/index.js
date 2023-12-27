@@ -23,6 +23,8 @@ import AdminFAQ from './admin/AdminFAQ.jsx'
 import AdminTestimonies from './admin/AdminTestimonies.jsx'
 import AdminGallery from './admin/AdminGallery.jsx'
 import AdminTeam from './admin/AdminTeam.jsx'
+import AdminGalleryPage from './admin/AdminGalleryPage.jsx'
+import UserList from './admin/UserList.jsx'
 
 export{
     Navbar,
@@ -38,5 +40,6 @@ export{
     Polaroid,Card,FormField,
     Hamburger,Popup,Sidebar,
     AdminEvent,
-    AdminBlog,AdminCollaborations,AdminFAQ,AdminGallery,AdminTeam,AdminTestimonies
+    AdminBlog,AdminCollaborations,AdminFAQ,AdminGallery,AdminTeam,AdminTestimonies,AdminGalleryPage,
+    UserList
 }

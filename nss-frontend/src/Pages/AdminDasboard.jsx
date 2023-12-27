@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes,Route, useNavigate } from 'react-router-dom'
-import { AdminBlog, AdminCollaborations, AdminEvent, AdminFAQ, AdminGallery, AdminTeam, AdminTestimonies, Sidebar } from '../components'
+import { AdminBlog, AdminCollaborations, AdminEvent, AdminFAQ, AdminGallery, AdminGalleryPage, AdminTeam, AdminTestimonies, Sidebar, UserList } from '../components'
 import React, { useEffect, useState } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import AccessDenied from './AccessDenied';
@@ -29,9 +29,10 @@ const AdminDasboard = () => {
           <Route path="/adminFAQ" element={<AdminFAQ />} />
           <Route path="/adminGallery" element={<AdminGallery />} />
           <Route path="/adminTeam" element={<AdminTeam />} />
- 
+          <Route path="/adminGallery/adminGalleryof/:galleryId" element={<AdminGalleryPage/>}></Route>
         </Routes>
       </div>
+      <UserList/>
     </div>
   )
 }
