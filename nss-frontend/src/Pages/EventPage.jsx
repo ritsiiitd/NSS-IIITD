@@ -179,7 +179,7 @@ const EventPage = () => {
           
         </div>
         
-        {isAuthenticated && !isUserVolunteer && getDaysUntilDate(event[0]?.deadline)>=0 && <div className="flex-1">
+        {isAuthenticated && !isUserVolunteer && user.email_verified && getDaysUntilDate(event[0]?.deadline)>=0 && <div className="flex-1">
           {/* <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>    */}
 
           <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
@@ -198,6 +198,28 @@ const EventPage = () => {
                 title="Register Yourself as Volunteer"
                 styles="w-full mt-[10px] bg-[#4BB543]"
                 handleClick={registerVolunteer}
+              />
+            </div>
+          </div>
+        </div>}
+        {isAuthenticated && !isUserVolunteer && !user.email_verified && getDaysUntilDate(event[0]?.deadline)>=0 && <div className="flex-1">
+          {/* <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>    */}
+
+          <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
+            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#808191]">
+              Volunteer Registration
+            </p>
+            <div className="mt-[10px]">
+        
+              <div className="mt-[1px] p-4 bg-[#13131a] rounded-[10px]">
+                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Email not verified</h4>
+                <p className="mt-[10px] font-epilogue font-normal leading-[22px] text-[#808191]">Please verify your email address before registering</p>
+              </div>
+
+              <CustomButton 
+                btnType="button"
+                title="verify email"
+                styles="w-full cursor-default mt-[10px] bg-coral-red"
               />
             </div>
           </div>

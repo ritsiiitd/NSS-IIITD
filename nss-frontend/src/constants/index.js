@@ -14,7 +14,7 @@ export const navlinksadmin = [
     {
       name: 'Home',
       imgUrl: dashboard,
-      link: '/admin',
+      link: '/admin/adminUserList',
     },
     {
       name: 'Events',
