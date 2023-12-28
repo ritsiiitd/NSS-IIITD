@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { createCampaign, money } from '../../assets';
 import { CustomButton, FormField, Loader } from '../../components';
 import { checkIfImage } from '../../utils';
-import { Button } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 
 const AdminEvent = () => {
 
@@ -111,43 +111,71 @@ const AdminEvent = () => {
     setForm({...form, [fieldName]:e.target.value})
   }
 
+  // Function to call the backend API and download the Excel file
+const downloadVolunteerList = async (eventId) => {
+  try {
+    // Make a GET request to the backend API to download the volunteer list Excel file
+    const response = await fetch(`http://localhost:8080/api/v1/downloadVolunteerList/${eventId}`, {
+      method: 'GET',
+    });
+
+    // Check if the request was successful
+    if (response.ok) {
+      // Convert the response to a blob
+      const blob = await response.blob();
+
+      // Create a temporary URL for the blob
+      const url = window.URL.createObjectURL(new Blob([blob]));
+
+      // Create a link element
+      const link = document.createElement('a');
+      link.href = url;
+
+      // Set the filename for the downloaded file
+      link.setAttribute('download', `volunteer_list_${eventId}.xlsx`);
+
+      // Append the link to the body and trigger the download
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } 
+    // else {
+    //   // Handle the error if the request was not successful
+    //   console.error('Failed to download the volunteer list');
+    // }
+  } catch (error) {
+    // Handle any network or other errors
+    console.error('An error occurred while downloading the volunteer list', error);
+  }
+};
+
+// Call the function with the event ID
+// const eventId = 'your_event_id'; // Replace with the actual event ID
+// downloadVolunteerList(eventId);
+
   return (
     <>
-    <div
-      className={`flex flex-row justify-start ml-${animationCompleted ? '0' : '[-50px]'}`}
-      style={{ transition: 'margin-left 1.5s', borderBottom: '3px solid red' }}
-    >
-      <div
-        className="text-white font-palanquin text-center text-[200%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
-        style={{ verticalAlign: 'bottom' }}
-      >
-        &nbsp;
-      </div>
-
-      <div
-        className="text-white font-palanquin text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
-        style={{ verticalAlign: 'bottom' }}
-      >
-        manage events&nbsp;
-      </div>
-
-      <div
-        className="text-center font-palanquin text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
-        style={{ verticalAlign: 'bottom' }}
-      >
-        .
-      </div>
-    </div>
+    <Row className="justify-content-center">
+        <Col xs={12} sm={8} lg={6}>
+          <div className="section_heading text-center wow fadeInUp">
+            <h3 className="mt-3 font-bold text-[50px] font-palanquin text-white mb-2">NSS events<span></span></h3>
+            <p className='mb-4 text-white'>manage events</p>
+            <div className="line"></div>
+          </div>
+        </Col>
+      </Row>
     <br /><br /> <br />
     <div className="flex gap-[40px] flex-wrap justify-center">
       {allEvents.map(event => (
             <div className="card " style={{ backgroundImage: `url(${event.picture})` }}>
             <div className="card-content">
             <h2 className="card-title font-palanquin">{event.name}</h2>
-            <p className="card-body font-palanquin">
-                {event.title}
-            </p>
-            <Button onClick={()=>{deleteEvent(event._id)}}>Delete</Button>
+            
+            <Button className=' bg-violet-500 hover:bg-red-600' onClick={()=>{deleteEvent(event._id)}}>Delete</Button>
+            <Button className='mt-4 bg-green-700 hover:bg-pink-600' onClick={()=>{downloadVolunteerList(event._id)}}>Download Volunteer List</Button>
             </div>
         </div>
         ))}

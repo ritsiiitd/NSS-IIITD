@@ -17,6 +17,7 @@ import collabRoutes from './routes/collabRoutes.js';
 import teamRoutes from './routes/teamRoutes.js';
 import addUser from './routes/addUser.js';
 import getUsers from './routes/getUsers.js';
+import downloadVolunteerList from './routes/downloadVolunteerList.js';
 // const nodemailer = require('nodemailer');
 
 import deleteEvent from './routes/deleteEvent.js';
@@ -57,6 +58,7 @@ app.use('/api/v1/collaborationList',collabRoutes);
 app.use('/api/v1/nssTeam',teamRoutes);
 app.use('/api/v1/addUser',addUser);
 app.use('/api/v1/getUsers',getUsers);
+app.use('/api/v1/downloadVolunteerList',downloadVolunteerList);
 
 app.use('/api/v1/createEvent',addEventRoute);
 app.use('/api/v1/createTestimonies',addTestimoniesRoutes);
