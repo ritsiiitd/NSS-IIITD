@@ -15,6 +15,8 @@ import galleryPageRoutes from './routes/galleryPageRoutes.js';
 import blogPageRoutes from './routes/blogPageRoutes.js';
 import collabRoutes from './routes/collabRoutes.js';
 import teamRoutes from './routes/teamRoutes.js';
+import addUser from './routes/addUser.js';
+import getUsers from './routes/getUsers.js';
 // const nodemailer = require('nodemailer');
 
 import deleteEvent from './routes/deleteEvent.js';
@@ -53,6 +55,8 @@ app.use('/api/v1/faqs',faqRoutes);
 app.use('/api/v1/galleries',galleryRoutes);
 app.use('/api/v1/collaborationList',collabRoutes);
 app.use('/api/v1/nssTeam',teamRoutes);
+app.use('/api/v1/addUser',addUser);
+app.use('/api/v1/getUsers',getUsers);
 
 app.use('/api/v1/createEvent',addEventRoute);
 app.use('/api/v1/createTestimonies',addTestimoniesRoutes);

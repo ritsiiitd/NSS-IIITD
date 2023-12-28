@@ -24,7 +24,32 @@ const Nav = () => {
     };
   }, []);
 
-  console.log(user,user?.given_name,"AHHHHHHHHHHHHHHH");
+  console.log(user);
+
+  useEffect(() => {
+    const saveUser = async() => {
+      try {
+      if(user==null || !user.email_verified){
+        return;
+      }
+      const response = await fetch('http://localhost:8080/api/v1/addUser',{
+          method:'POST',
+          headers:{
+          'Content-Type':'application/json',
+          },
+          body: JSON.stringify({user}),
+      })
+      if(response.ok){
+          const result = await response.json();
+          console.log(result);
+          setEvents(result.data);
+      }
+      } catch (error) {
+      
+      }
+  }
+  saveUser();
+  }, [user]);
 
   return (
     <header className={`bg-black sticky top-0 bg-gradient-to-bl py-3 z-50 w-[100%] ${scrolled ? 'opacity-30' : '' } ${isHovered ? 'opacity-80' : ''}`} onMouseEnter={() => setIsHovered(true)}
@@ -60,10 +85,19 @@ const Nav = () => {
           {/* <span>/</span>
           <a href='/'>Explore now</a> */}
         </div>}
-         {!error && !isLoading && isAuthenticated && <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
+         {!error && !isLoading && isAuthenticated && user.email_verified && <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
          <button  onClick={()=>logout()} type="button" className="flex gap-2 text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
                 
                 <img src={logoutIcon} alt="" height='20px' width='20px' />
+                {user.given_name}
+            </button>
+          {/* <span>/</span>
+          <a href='/'>Explore now</a> */}
+        </div>}
+         {!error && !isLoading && isAuthenticated && !user.email_verified && <div className='flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24'>
+         <button onClick={()=>logout()}  type="button" className="flex gap-2 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">
+                <img src={logoutIcon} alt="" height='20px' width='20px' />
+                Please verify your email Address
                 {user.given_name}
             </button>
           {/* <span>/</span>
