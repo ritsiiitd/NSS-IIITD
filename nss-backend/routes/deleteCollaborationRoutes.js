@@ -17,7 +17,6 @@ router.route('/:departmentId/:organizationId').get(async(req,res)=>{
         return res.status(404).json({ message: 'Department not found' });
         }
         const organizationIndex = department.organisations.findIndex(org => org._id.toString() === organizationId);
-        console.log("ye wali organisation?",organizationIndex, department);
         if (organizationIndex === -1) {
             return res.status(404).json({ message: 'Organization not found in department' });
         }

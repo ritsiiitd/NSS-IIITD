@@ -1,35 +1,61 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const faqs = [
-  {
-    id: 1,
-    question: 'How can I contribute to your cause?',
-    answer: 'You can contribute by volunteering your time, making a donation, or participating in our awareness campaigns. Visit our "Get Involved" section for more details.',
-  },
-  {
-    id: 2,
-    question: 'What is the impact of blood donation?',
-    answer: 'Blood donation saves lives by providing a crucial resource for medical treatments, surgeries, and emergencies. One donation can make a significant difference.',
-  },
-  {
-    id: 3,
-    question: 'How can I apply for educational support programs?',
-    answer: 'Check our "Scholarships" page for information on available educational support programs. Follow the application guidelines and submit your application online.',
-  },
-  {
-    id: 4,
-    question: 'What health services do you provide?',
-    answer: 'We offer a range of health services, including preventive care, vaccinations, and community health programs. Explore our "Health Services" section for more details.',
-  },
-  // Add more FAQs as needed
-];
+// const faqs = [
+//   {
+//     id: 1,
+//     question: 'How can I contribute to your cause?',
+//     answer: 'You can contribute by volunteering your time, making a donation, or participating in our awareness campaigns. Visit our "Get Involved" section for more details.',
+//   },
+//   {
+//     id: 2,
+//     question: 'What is the impact of blood donation?',
+//     answer: 'Blood donation saves lives by providing a crucial resource for medical treatments, surgeries, and emergencies. One donation can make a significant difference.',
+//   },
+//   {
+//     id: 3,
+//     question: 'How can I apply for educational support programs?',
+//     answer: 'Check our "Scholarships" page for information on available educational support programs. Follow the application guidelines and submit your application online.',
+//   },
+//   {
+//     id: 4,
+//     question: 'What health services do you provide?',
+//     answer: 'We offer a range of health services, including preventive care, vaccinations, and community health programs. Explore our "Health Services" section for more details.',
+//   },
+//   // Add more FAQs as needed
+// ];
+
 
 const FAQs = () => {
+  const [FAQ, setFAQ] = useState([]);
+
+  useEffect(() => {
+    const fetchFAQs = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/faqs', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          setFAQ(result.data);
+        } else {
+          console.error('Failed to fetch faqs');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchFAQs();
+  }, []);
 
   const [expandedId, setExpandedId] = useState(null);
 
-  const handleQuestionClick = (id) => {
-    setExpandedId(id === expandedId ? null : id);
+  const handleQuestionClick = (_id) => {
+    setExpandedId(_id === expandedId ? null : _id);
   };
 
   return (
@@ -47,17 +73,17 @@ const FAQs = () => {
       </div>
       
       <div>
-      {faqs.map((faq) => (
-        <div key={faq.id} className="items-stretch self-stretch flex justify-between gap-5 mt-16 max-md:max-w-full max-md:flex-wrap max-md:mt-10">
-        {expandedId === faq.id && (<div className="bg-black flex w-[3px] shrink-0 h-[150px] flex-col rounded-xl" ></div>)}
-        {expandedId != faq.id && (<div className="bg-black flex w-[3px] shrink-0 h-8 flex-col rounded-xl" />)}
+      {FAQ.map((faq) => (
+        <div key={faq._id} className="items-stretch self-stretch flex justify-between gap-5 mt-16 max-md:max-w-full max-md:flex-wrap max-md:mt-10">
+        {expandedId === faq._id && (<div className="bg-black flex w-[3px] shrink-0 h-[150px] flex-col rounded-xl" ></div>)}
+        {expandedId != faq._id && (<div className="bg-black flex w-[3px] shrink-0 h-8 flex-col rounded-xl" />)}
         <div className="items-stretch flex grow basis-[0%] flex-col self-start max-md:max-w-full">
-        <div key={faq.id}>
-          <div onClick={() => handleQuestionClick(faq.id)} className="text-black font-palanquin text-xl font-semibold leading-6 max-md:max-w-full">
+        <div key={faq._id}>
+          <div onClick={() => handleQuestionClick(faq._id)} className="text-black font-palanquin text-xl font-semibold leading-6 max-md:max-w-full">
             {faq.question}
             <br />
           </div>
-          {expandedId === faq.id && (
+          {expandedId === faq._id && (
             <div className="text-zinc-800 font-palanquin text-lg leading-8 mt-8 max-md:max-w-full">
            {faq.answer}
           </div>

@@ -1,16 +1,25 @@
-import React from 'react'
-import { useEffect, useState } from "react";
-import { Event } from "../../components";
+import React, { useEffect, useState } from 'react'
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
 import { createCampaign, money } from '../../assets';
 import { CustomButton, FormField, Loader } from '../../components';
 import { checkIfImage } from '../../utils';
-import { Button, Col, Row } from 'react-bootstrap';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
 const AdminEvent = () => {
 
+
+  const [result, showResult] = useState(false);
+
+  const handleClose = () => {
+    showResult(false);
+  };
 
     const [allEvents,setEvents] = useState([{
         eventID:1,
@@ -54,7 +63,6 @@ const AdminEvent = () => {
             })
             if(response.ok){
                 const result = await response.json();
-                console.log(result);
                 setEvents(result.data);
             }
             } catch (error) {
@@ -67,7 +75,7 @@ const AdminEvent = () => {
 
     const [animationCompleted, setAnimationCompleted] = useState(false);
 
-    const navigate = useNavigate();//called a hook
+
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     name:'',
@@ -98,6 +106,7 @@ const AdminEvent = () => {
         const result = await response.json();
         setEvents(result.data);
         setIsLoading(false);
+        showResult(true);
         // navigate('/');
       } else {
         console.error('Failed to create event');
@@ -210,7 +219,7 @@ const downloadVolunteerList = async (eventId) => {
             handleChange={(e)=> handleFormFieldChange('organiser', e)}
             />
           <FormField 
-            labelName="Event Organiser *"
+            labelName="Event Venue *"
             placeholder="Venue"
             inputType="text"
             value={form.venue}
@@ -220,7 +229,7 @@ const downloadVolunteerList = async (eventId) => {
         <div className='flex flex-wrap gap-[40px]'>
             <FormField 
             labelName="Event Date *"
-            placeholder="Date"
+            placeholder="DD/MM/YYYY"
             inputType="date"
             value={form.date}
             handleChange={(e)=> handleFormFieldChange('date', e)}
@@ -228,7 +237,7 @@ const downloadVolunteerList = async (eventId) => {
           
           <FormField 
             labelName="Registration Deadline *"
-            placeholder="End Date"
+            placeholder="DD/MM/YYYY"
             inputType="date"
             value={form.deadline}
             handleChange={(e)=> handleFormFieldChange('deadline', e)}
@@ -278,6 +287,17 @@ const downloadVolunteerList = async (eventId) => {
       </form>
 
     </div>
+    <Snackbar
+        open={result}
+        autoHideDuration={5000} // Adjust the duration (in milliseconds) as needed
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          <AlertTitle>Success</AlertTitle>
+          New Event saved successfully — <strong>Thank you!</strong>
+        </Alert>
+      </Snackbar>
     </>
   )
 }

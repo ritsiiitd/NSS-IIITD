@@ -24,7 +24,6 @@ router.route('/').post(async(req,res)=>{
             return res.status(404).json({ success: false, message: `Gallery with galleryId ${galleryId} not found.` });
         }
 
-        console.log("helloo",req.body);
 
         // Fetch file IDs and convert to usable links
         const updatedImages = await Promise.all(driveLinks.split(',').map(async (driveLink) => {

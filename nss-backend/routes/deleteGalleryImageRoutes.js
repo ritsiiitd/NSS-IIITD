@@ -24,7 +24,6 @@ router.route('/:GalleryId/:ImageId').get(async(req,res)=>{
         console.log("Completed Request to delete image from Gallery with ID:", GalleryId);
        
         const galleryNW = await Gallery.findById(GalleryId);
-        console.log("smtgh",galleryNW);
         res.status(200).json({success: true, data:galleryNW});
         // res.status(200).json({success: true, data:Gallery});
     } catch (error) {

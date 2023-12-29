@@ -111,7 +111,6 @@ const Popup = (props) => {
         const result = await response.json();
         // Handle the result as needed
         setDepartments(result.data);
-        console.log(result.data);
       } else {
         console.error('Failed to delete collaboration');
       }
@@ -131,7 +130,6 @@ const Popup = (props) => {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log("form is",form);
       try {
       const response = await fetch('https://nss-iiitd-backend.onrender.com/api/v1/createCollaboration', {
           method: 'POST',
@@ -176,7 +174,6 @@ const Popup = (props) => {
         if (response.ok) {
           const result = await response.json();
           setDepartments(result.data);
-          console.log(result.data);
         } else {
           console.error('Failed to fetch departments');
         }
@@ -304,7 +301,7 @@ const Popup = (props) => {
     <div className='flex justify-center items-center mt-[40px]'>
         <CustomButton 
         btnType="submit"
-        title="Add member"
+        title="Add Collaboration"
         styles="bg-[#1dc071]"
     />
         
@@ -321,7 +318,7 @@ const Popup = (props) => {
       >
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           <AlertTitle>Success</AlertTitle>
-          New Collaboration has been sent successfully — <strong>Thank you!</strong>
+          New Collaboration has been saved successfully — <strong>Thank you!</strong>
         </Alert>
       </Snackbar>
     </>

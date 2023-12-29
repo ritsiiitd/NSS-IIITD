@@ -86,7 +86,6 @@ const EventPage = () => {
       if(response.ok){
         const result = await response.json();
         setEvent(result.data);
-        console.log(result.data);
         setIsInitialized(true);
       }
     } catch (error) {

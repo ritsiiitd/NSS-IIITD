@@ -13,7 +13,6 @@ router.route('/:galleryId').get(async(req,res)=>{
         const galleryId=req.params.galleryId;
         console.log("request from Gallery page",galleryId);
         const gallery = await Gallery.findById(galleryId);
-        console.log("smtgh",gallery);
         res.status(200).json({success: true, data:gallery});
     } catch (error) {
         console.log(error);

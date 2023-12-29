@@ -32,7 +32,6 @@ const AdminTestimonies = () => {
         if (response.ok) {
           const result = await response.json();
           setTestimonies(result.data);
-          console.log(result.data);
         } else {
           console.error('Failed to fetch Testimonies');
         }
@@ -217,7 +216,7 @@ const AdminTestimonies = () => {
     <div className='flex justify-center items-center mt-[40px]'>
         <CustomButton 
         btnType="submit"
-        title="Start campaign"
+        title="Add testimony"
         styles="bg-[#1dc071]"
     />
         
@@ -234,7 +233,7 @@ const AdminTestimonies = () => {
       >
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           <AlertTitle>Success</AlertTitle>
-          New Testimonies has been sent successfully — <strong>Thank you!</strong>
+          New Testimonies has been saved successfully — <strong>Thank you!</strong>
         </Alert>
       </Snackbar>
     </>

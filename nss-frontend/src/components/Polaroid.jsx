@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Polaroid = ({ eventName, galleryId, photos }) => {
-  console.log("here it goes", eventName);
 
   // Take the first four images from the photos array
   const firstFourImages = photos.slice(0, 4).concat(Array.from({ length: 4 - photos.length }, (_, index) => photos[index % photos.length]));
-  console.log(firstFourImages);
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 padding-top-30 padding-bottom-30 margin-top-0">
       <Link to={`/galleryOf/${galleryId}`} title={eventName}>

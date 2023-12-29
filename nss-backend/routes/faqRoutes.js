@@ -10,8 +10,9 @@ const router = express.Router();
 //GET all Statistics
 router.route('/').get(async(req,res)=>{
     try {
+        
         const stats = await faq.find({});
-        // console.log(stats);
+        // console.log("FAQ");
         res.status(200).json({success: true, data:stats});
     } catch (error) {
         res.status(500).json({success: false, message:error});

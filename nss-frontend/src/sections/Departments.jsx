@@ -19,7 +19,6 @@ const Departments = () => {
         if (response.ok) {
           const result = await response.json();
           setDepartments(result.data);
-          console.log(result.data);
         } else {
           console.error('Failed to fetch departments');
         }

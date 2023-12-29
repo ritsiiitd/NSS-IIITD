@@ -11,7 +11,9 @@ const Nav = () => {
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  // const isMobile = window.innerWidth <= 767;
+  const roleURL = import.meta.env.VITE_ROLES_URL
+  const isAdmin = user && user[roleURL]?.includes('Admin');
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
@@ -23,8 +25,6 @@ const Nav = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  console.log(user);
 
   useEffect(() => {
     const saveUser = async() => {
@@ -41,7 +41,6 @@ const Nav = () => {
       })
       if(response.ok){
           const result = await response.json();
-          console.log(result);
           setEvents(result.data);
       }
       } catch (error) {
@@ -75,6 +74,15 @@ const Nav = () => {
               </Link>
             </li>
           ))}
+          {isAdmin && 
+          <li key="Admin">
+              <Link
+                to='/admin/Home'
+                className='font-montserrat bg-emerald-600 p-2 rounded-3xl leading-normal text-lg text-white'
+              >
+                Admin Dashboard
+              </Link>
+            </li>}
         </ul>
         {error && <p>Authentication Error</p>}
         {!error && isLoading && <p>Loading....</p>}

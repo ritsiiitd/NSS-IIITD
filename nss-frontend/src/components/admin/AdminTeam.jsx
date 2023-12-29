@@ -32,7 +32,6 @@ const AdminTeam = () => {
         if (response.ok) {
           const result = await response.json();
           setTeam(result.data);
-          console.log(result.data);
         } else {
           console.error('Failed to fetch team');
         }
@@ -230,7 +229,7 @@ const AdminTeam = () => {
       >
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           <AlertTitle>Success</AlertTitle>
-          New Team has been sent successfully — <strong>Thank you!</strong>
+          New Team member saved successfully — <strong>Thank you!</strong>
         </Alert>
       </Snackbar>
     </>

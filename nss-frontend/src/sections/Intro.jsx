@@ -30,7 +30,6 @@ const Intro = () => {
         })
         if(response.ok){
           const result = await response.json();
-          console.log(result);
           setStatistics(result.data);
         }
       } catch (error) {

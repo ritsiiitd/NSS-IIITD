@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const RenderCards = ({data,title}) => {
-  console.log("image data",data);
   if(data?.length > 0) {
     return data.map((post)=>
       <Card key={post._id} photo={post}/>
@@ -23,7 +22,6 @@ const GalleryPage = () => {
   const [search,setSearch] = useState("")
   const [event, setEvent] = useState(null);
   const { galleryId } = useParams();
-  console.log(galleryId);
 
   const fetchGallery = async() => {
     try {
@@ -36,7 +34,6 @@ const GalleryPage = () => {
       if(response.ok){
         const result = await response.json();
         setSaved(result.data);
-        console.log(result.data);
         // setIsInitialized(true);
       }
     } catch (error) {
@@ -57,7 +54,6 @@ const GalleryPage = () => {
       if(saved[k]?.prompt?.includes(search))
       searchedPosts.push(saved[k])
     }
-    console.log(searchedPosts);
     setSearchedData(searchedPosts);
   }
 

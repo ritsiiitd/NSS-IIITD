@@ -39,7 +39,6 @@ const AdminGallery = () => {
         })
         if(response.ok){
           const result = await response.json();
-          console.log(result.data);
           setGalleries(result.data);
         }
       } catch (error) {

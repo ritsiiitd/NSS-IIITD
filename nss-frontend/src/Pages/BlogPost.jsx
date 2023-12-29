@@ -18,7 +18,6 @@ const BlogPost = () => {
       if(response.ok){
         const result = await response.json();
         setBlog(result.data);
-        console.log(result.data);
         
       }
     } catch (error) {

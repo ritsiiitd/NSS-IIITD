@@ -20,7 +20,6 @@ function TeamSection() {
         if (response.ok) {
           const result = await response.json();
           setTeam(result.data);
-          console.log(result.data);
         } else {
           console.error('Failed to fetch team');
         }
