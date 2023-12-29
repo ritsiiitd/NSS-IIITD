@@ -1,16 +1,25 @@
-import React from 'react'
-import { useEffect, useState } from "react";
-import { Event } from "../../components";
+import React, { useEffect, useState } from 'react'
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
 import { createCampaign, money } from '../../assets';
 import { CustomButton, FormField, Loader } from '../../components';
 import { checkIfImage } from '../../utils';
-import { Button } from 'react-bootstrap';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
 
 const AdminEvent = () => {
 
+
+  const [result, showResult] = useState(false);
+
+  const handleClose = () => {
+    showResult(false);
+  };
 
     const [allEvents,setEvents] = useState([{
         eventID:1,
@@ -54,7 +63,6 @@ const AdminEvent = () => {
             })
             if(response.ok){
                 const result = await response.json();
-                console.log(result);
                 setEvents(result.data);
             }
             } catch (error) {
@@ -67,7 +75,7 @@ const AdminEvent = () => {
 
     const [animationCompleted, setAnimationCompleted] = useState(false);
 
-    const navigate = useNavigate();//called a hook
+
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     name:'',
@@ -98,6 +106,7 @@ const AdminEvent = () => {
         const result = await response.json();
         setEvents(result.data);
         setIsLoading(false);
+        showResult(true);
         // navigate('/');
       } else {
         console.error('Failed to create event');
@@ -111,43 +120,71 @@ const AdminEvent = () => {
     setForm({...form, [fieldName]:e.target.value})
   }
 
+  // Function to call the backend API and download the Excel file
+const downloadVolunteerList = async (eventId) => {
+  try {
+    // Make a GET request to the backend API to download the volunteer list Excel file
+    const response = await fetch(`http://localhost:8080/api/v1/downloadVolunteerList/${eventId}`, {
+      method: 'GET',
+    });
+
+    // Check if the request was successful
+    if (response.ok) {
+      // Convert the response to a blob
+      const blob = await response.blob();
+
+      // Create a temporary URL for the blob
+      const url = window.URL.createObjectURL(new Blob([blob]));
+
+      // Create a link element
+      const link = document.createElement('a');
+      link.href = url;
+
+      // Set the filename for the downloaded file
+      link.setAttribute('download', `volunteer_list_${eventId}.xlsx`);
+
+      // Append the link to the body and trigger the download
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } 
+    // else {
+    //   // Handle the error if the request was not successful
+    //   console.error('Failed to download the volunteer list');
+    // }
+  } catch (error) {
+    // Handle any network or other errors
+    console.error('An error occurred while downloading the volunteer list', error);
+  }
+};
+
+// Call the function with the event ID
+// const eventId = 'your_event_id'; // Replace with the actual event ID
+// downloadVolunteerList(eventId);
+
   return (
     <>
-    <div
-      className={`flex flex-row justify-start ml-${animationCompleted ? '0' : '[-50px]'}`}
-      style={{ transition: 'margin-left 1.5s', borderBottom: '3px solid red' }}
-    >
-      <div
-        className="text-white font-palanquin text-center text-[200%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
-        style={{ verticalAlign: 'bottom' }}
-      >
-        &nbsp;
-      </div>
-
-      <div
-        className="text-white font-palanquin text-center text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
-        style={{ verticalAlign: 'bottom' }}
-      >
-        manage events&nbsp;
-      </div>
-
-      <div
-        className="text-center font-palanquin text-red-500 text-[400%] font-semibold leading-[57px] self-center max-w-[922px] max-md:max-w-full max-md:text-4xl max-md:leading-[53px]"
-        style={{ verticalAlign: 'bottom' }}
-      >
-        .
-      </div>
-    </div>
+    <Row className="justify-content-center">
+        <Col xs={12} sm={8} lg={6}>
+          <div className="section_heading text-center wow fadeInUp">
+            <h3 className="mt-3 font-bold text-[50px] font-palanquin text-white mb-2">NSS events<span></span></h3>
+            <p className='mb-4 text-white'>manage events</p>
+            <div className="line"></div>
+          </div>
+        </Col>
+      </Row>
     <br /><br /> <br />
     <div className="flex gap-[40px] flex-wrap justify-center">
       {allEvents.map(event => (
             <div className="card " style={{ backgroundImage: `url(${event.picture})` }}>
             <div className="card-content">
             <h2 className="card-title font-palanquin">{event.name}</h2>
-            <p className="card-body font-palanquin">
-                {event.title}
-            </p>
-            <Button onClick={()=>{deleteEvent(event._id)}}>Delete</Button>
+            
+            <Button className=' bg-violet-500 hover:bg-red-600' onClick={()=>{deleteEvent(event._id)}}>Delete</Button>
+            <Button className='mt-4 bg-green-700 hover:bg-pink-600' onClick={()=>{downloadVolunteerList(event._id)}}>Download Volunteer List</Button>
             </div>
         </div>
         ))}
@@ -182,7 +219,7 @@ const AdminEvent = () => {
             handleChange={(e)=> handleFormFieldChange('organiser', e)}
             />
           <FormField 
-            labelName="Event Organiser *"
+            labelName="Event Venue *"
             placeholder="Venue"
             inputType="text"
             value={form.venue}
@@ -192,7 +229,7 @@ const AdminEvent = () => {
         <div className='flex flex-wrap gap-[40px]'>
             <FormField 
             labelName="Event Date *"
-            placeholder="Date"
+            placeholder="DD/MM/YYYY"
             inputType="date"
             value={form.date}
             handleChange={(e)=> handleFormFieldChange('date', e)}
@@ -200,7 +237,7 @@ const AdminEvent = () => {
           
           <FormField 
             labelName="Registration Deadline *"
-            placeholder="End Date"
+            placeholder="DD/MM/YYYY"
             inputType="date"
             value={form.deadline}
             handleChange={(e)=> handleFormFieldChange('deadline', e)}
@@ -250,6 +287,17 @@ const AdminEvent = () => {
       </form>
 
     </div>
+    <Snackbar
+        open={result}
+        autoHideDuration={5000} // Adjust the duration (in milliseconds) as needed
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          <AlertTitle>Success</AlertTitle>
+          New Event saved successfully — <strong>Thank you!</strong>
+        </Alert>
+      </Snackbar>
     </>
   )
 }

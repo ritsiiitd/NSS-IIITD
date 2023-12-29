@@ -14,7 +14,7 @@ const AdminGalleryPage = () => {
   const [search,setSearch] = useState("")
   const [event, setEvent] = useState(null);
   const { galleryId } = useParams();
-  // console.log(galleryId);
+
 
   const deleteGalleryImage = async(ImageId) => {
     try {
@@ -26,7 +26,6 @@ const AdminGalleryPage = () => {
         })
         if(response.ok){
             const result = await response.json();
-            console.log("after deleting",result.data);
             setSaved(result.data);
             // setIsInitialized(true);
             }
@@ -52,7 +51,6 @@ const AdminGalleryPage = () => {
     };
 
   const RenderCards = ({data,title}) => {
-      console.log("image data",data);
       if(data?.length > 0) {
         return data.map((post)=>
           <Card key={post._id} photo={post}/>
@@ -73,7 +71,6 @@ const AdminGalleryPage = () => {
       if(response.ok){
         const result = await response.json();
         setSaved(result.data);
-        console.log(result.data);
         // setIsInitialized(true);
       }
     } catch (error) {
@@ -94,7 +91,6 @@ const AdminGalleryPage = () => {
       if(saved[k]?.prompt?.includes(search))
       searchedPosts.push(saved[k])
     }
-    console.log(searchedPosts);
     setSearchedData(searchedPosts);
   }
 

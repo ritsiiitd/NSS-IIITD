@@ -32,7 +32,7 @@ async function insertTestimoniesMember() {
     // Save the new event to the database
     const savedEvent = await newEvent.save();
 
-    console.log('New event saved:', savedEvent);
+    console.log('New Testimony saved:');
   } catch (error) {
     console.error('Error inserting new event:', error);
   } finally {

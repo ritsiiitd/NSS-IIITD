@@ -7,7 +7,6 @@ export const navLinks = [
     { href: "/gallery", label: "Gallery" },
     { href: "/contact-us", label: "Contact Us" },
     { href: "/team", label: "Team"},
-    { href: "/admin", label: "Admin"},
 ];
 
 export const navlinksadmin = [
@@ -53,7 +52,7 @@ export const navlinksadmin = [
     {
       name: 'FAQs',
       imgUrl: withdraw,
-      link: '/admin/adminFAQs',
+      link: '/admin/adminFAQ',
     },
   ];
 

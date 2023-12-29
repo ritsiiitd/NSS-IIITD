@@ -28,7 +28,6 @@ const ContactForm = () => {
       .sendForm(serviceID, tempalteID, e.target, publicKey)
       .then(
         (result) => {
-          console.log(serviceID, tempalteID, e.target);
           console.log(result.text);
           showResult(true);
         },

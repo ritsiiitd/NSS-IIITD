@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes,Route, useNavigate } from 'react-router-dom'
-import { AdminBlog, AdminCollaborations, AdminEvent, AdminFAQ, AdminGallery, AdminGalleryPage, AdminTeam, AdminTestimonies, Sidebar, UserList } from '../components'
+import { AdminBG, AdminBlog, AdminCollaborations, AdminEvent, AdminFAQ, AdminGallery, AdminGalleryPage, AdminTeam, AdminTestimonies, Sidebar, UserList } from '../components'
 import React, { useEffect, useState } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import AccessDenied from './AccessDenied';
@@ -22,6 +22,7 @@ const AdminDasboard = () => {
         <div className='flex-grow'>
           <Routes>
             <Route path="/admin/*" element={<AdminDasboard />} />
+            <Route path="/Home" element={<AdminBG />} />
             <Route path="/adminUserList" element={<UserList />} />
             <Route path="/adminEvent" element={<AdminEvent />} />
             <Route path="/adminBlog" element={<AdminBlog />} />

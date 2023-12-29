@@ -19,14 +19,19 @@ export default function App() {
   const [showAnimated3, setShowAnimated3] = useState(false);
   const {user, logout , loginWithRedirect, isAuthenticated} = useAuth0();
   const {isLoading,error} = useAuth0();
-  
+  const roleURL = import.meta.env.VITE_ROLES_URL
+  const isAdmin = user && user[roleURL]?.includes('Admin');
+  const closeHamburger = () => {
+    setShowAnimated2(false); // Close the hamburger
+  };
+
   return (
     <>
       
 
-      <section className='mb-3'>
-        <MDBNavbar dark bgColor='dark'>
-          <MDBContainer fluid>
+      <section  className=' mb-3'>
+        <MDBNavbar onClick={() => setShowAnimated2(!showAnimated2)} className='cursor-pointer' dark bgColor='dark'>
+          <MDBContainer  fluid>
             <MDBNavbarToggler
               type='button'
               className='second-button'
@@ -34,8 +39,9 @@ export default function App() {
               aria-controls='navbarToggleExternalContent'
               aria-expanded='false'
               aria-label='Toggle navigation'
-              onClick={() => setShowAnimated2(!showAnimated2)}
+              
             >
+              <MDBIcon icon='bars' />
               <div className={`animated-icon2 ${showAnimated2 && 'open'}`}>
                 <span></span>
                 <span></span>
@@ -48,22 +54,39 @@ export default function App() {
 
         <MDBCollapse show={showAnimated2} className=' bg-black'>
           <div className='bg-light flex flex-col gap-2 bg-black shadow-3 p-4'>
-          <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-            <Link to='/'  className='text-white'>Home</Link>
+          <Link to='/'  className='text-white'>
+          <button onClick={()=>{closeHamburger()}} type="button" className="text-white w-full bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            Home
           </button>
-          <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-          <Link to='/gallery'  className='text-white'>Gallery</Link>
+            </Link>
+          <Link to='/gallery'  className='text-white'>
+          <button type="button" onClick={()=>{closeHamburger()}} className="text-white w-full bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            Gallery
           </button>
-          <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-          <Link to='/about-us'  className='text-white'>About us</Link>
+          </Link>
+          <Link to='/about-us'  className='text-white'>
+          <button type="button" onClick={()=>{closeHamburger()}} className="text-white w-full bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            About us
           </button>
-          <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-          <Link to='/contact-us'  className='text-white'>Contact us</Link>
+          </Link>
+          <Link to='/contact-us'  className='text-white'>
+          <button type="button" onClick={()=>{closeHamburger()}} className="text-white w-full bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+          Contact us
           </button>
-          <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-          <Link to='/team'  className='text-white'>Team</Link>
+          </Link>
+          <Link to='/team'  className='text-white'>
+          <button type="button" onClick={()=>{closeHamburger()}} className="text-white w-full bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+            Team
           </button>
-          
+          </Link>
+          {isAdmin && 
+          <Link to='/admin/Home'  className='  text-white'>
+          <button type="button" onClick={()=>{closeHamburger()}} className="text-white w-full bg-emerald-600 hover:bg-emerald-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 ">
+            Admin Dashboard
+          </button>
+          </Link>
+          }
+        
         {error && <p>Authentication Error</p>}
         {!error && isLoading && <p>Loading....</p>}
          {!error && !isLoading && !isAuthenticated && 

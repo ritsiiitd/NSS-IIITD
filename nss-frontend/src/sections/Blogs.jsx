@@ -22,7 +22,6 @@ function Subscribe() {
         if (response.ok) {
           const result = await response.json();
           setblog(result.data);
-          console.log(result.data);
         } else {
           console.error('Failed to fetch blog');
         }

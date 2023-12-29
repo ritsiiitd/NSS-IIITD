@@ -25,6 +25,7 @@ import AdminGallery from './admin/AdminGallery.jsx'
 import AdminTeam from './admin/AdminTeam.jsx'
 import AdminGalleryPage from './admin/AdminGalleryPage.jsx'
 import UserList from './admin/UserList.jsx'
+import AdminBG from './admin/AdminBG.jsx'
 
 export{
     Navbar,
@@ -40,6 +41,6 @@ export{
     Polaroid,Card,FormField,
     Hamburger,Popup,Sidebar,
     AdminEvent,
-    AdminBlog,AdminCollaborations,AdminFAQ,AdminGallery,AdminTeam,AdminTestimonies,AdminGalleryPage,
+    AdminBlog,AdminCollaborations,AdminFAQ,AdminGallery,AdminTeam,AdminTestimonies,AdminGalleryPage,AdminBG,
     UserList
 }

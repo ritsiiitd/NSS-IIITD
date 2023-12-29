@@ -17,6 +17,7 @@ import collabRoutes from './routes/collabRoutes.js';
 import teamRoutes from './routes/teamRoutes.js';
 import addUser from './routes/addUser.js';
 import getUsers from './routes/getUsers.js';
+import downloadVolunteerList from './routes/downloadVolunteerList.js';
 // const nodemailer = require('nodemailer');
 
 import deleteEvent from './routes/deleteEvent.js';
@@ -26,6 +27,7 @@ import deleteTeamRoutes from './routes/deleteTeamRoutes.js';
 import deleteCollaborationRoutes from './routes/deleteCollaborationRoutes.js';
 import deleteGalleryRoutes from './routes/deleteGalleryRoutes.js';
 import deleteGalleryImageRoutes from './routes/deleteGalleryImageRoutes.js';
+import deleteFAQRoutes from './routes/deleteFAQRoutes.js';
 
 import addEventRoute from './routes/addEventRoute.js';
 import addBlogRoutes from './routes/addBlogRoutes.js';
@@ -34,6 +36,7 @@ import addTeamRoutes from './routes/addTeamRoutes.js';
 import addCollaborationRoutes from './routes/addCollaborationRoutes.js';
 import addGalleryRoutes from './routes/addGalleryRoutes.js';
 import addImageRoutes from './routes/addImageRoutes.js';
+import addFAQRoutes from './routes/addFAQRoutes.js';
 
 dotenv.config();
 
@@ -57,6 +60,7 @@ app.use('/api/v1/collaborationList',collabRoutes);
 app.use('/api/v1/nssTeam',teamRoutes);
 app.use('/api/v1/addUser',addUser);
 app.use('/api/v1/getUsers',getUsers);
+app.use('/api/v1/downloadVolunteerList',downloadVolunteerList);
 
 app.use('/api/v1/createEvent',addEventRoute);
 app.use('/api/v1/createTestimonies',addTestimoniesRoutes);
@@ -65,6 +69,7 @@ app.use('/api/v1/createTeam',addTeamRoutes);
 app.use('/api/v1/createCollaboration',addCollaborationRoutes);
 app.use('/api/v1/createGallery',addGalleryRoutes);
 app.use('/api/v1/addImages',addImageRoutes);
+app.use('/api/v1/createFaq',addFAQRoutes);
 
 app.use('/api/v1/deleteBlog',deleteBlogRoutes);
 app.use('/api/v1/deleteEvent',deleteEvent);
@@ -73,6 +78,7 @@ app.use('/api/v1/deleteTestimonies',deleteTestimoniesRoutes);
 app.use('/api/v1/deleteCollaboration',deleteCollaborationRoutes);
 app.use('/api/v1/deleteGallery',deleteGalleryRoutes);
 app.use('/api/v1/deleteGalleryImage',deleteGalleryImageRoutes);
+app.use('/api/v1/deleteFaq',deleteFAQRoutes);
 
 app.get('/', async(req,res)=>{
     res.send("Nss backend says hello");

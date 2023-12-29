@@ -29,7 +29,7 @@ async function insertTeamMember() {
     // Save the new event to the database
     const savedEvent = await newEvent.save();
 
-    console.log('New event saved:', savedEvent);
+    console.log('New team member saved:');
   } catch (error) {
     console.error('Error inserting new event:', error);
   } finally {

@@ -21,11 +21,10 @@ export default function UserList() {
         })
         if(response.ok){
           const result = await response.json();
-          console.log(result.data);
           setUsers(result.data);
         }
       } catch (error) {
-        
+        console.log(error); 
       }
     }
     fetchUsers();

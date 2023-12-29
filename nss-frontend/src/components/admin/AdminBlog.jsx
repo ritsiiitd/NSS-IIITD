@@ -32,7 +32,6 @@ const AdminBlog = () => {
         if (response.ok) {
           const result = await response.json();
           setblog(result.data);
-          console.log(result.data);
         } else {
           console.error('Failed to fetch blog');
         }
@@ -199,7 +198,7 @@ const AdminBlog = () => {
     <div className='flex justify-center items-center mt-[40px]'>
         <CustomButton 
         btnType="submit"
-        title="Start campaign"
+        title="Add Blog"
         styles="bg-[#1dc071]"
     />
         
@@ -216,7 +215,7 @@ const AdminBlog = () => {
       >
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           <AlertTitle>Success</AlertTitle>
-          New Blog has been sent successfully — <strong>Thank you!</strong>
+          New Blog has been saved successfully — <strong>Thank you!</strong>
         </Alert>
       </Snackbar>
     </>

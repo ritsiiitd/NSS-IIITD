@@ -31,7 +31,6 @@ export default class AutoPlay extends Component {
       })
       .then((result) => {
         this.setState({ team: result.data });
-        console.log("Testimonies data",result.data);
       })
       .catch((error) => {
         console.error("Error:", error);
