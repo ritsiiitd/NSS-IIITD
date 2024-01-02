@@ -1,1 +1,53 @@
-S
+NSS-IIITD Website
+temporarily hosted at https://fanciful-mermaid-c9a912.netlify.app/
+Description
+The NSS-IIITD Website is a platform designed for the National Service Scheme (NSS) chapter at the Indraprastha Institute of Information Technology Delhi (IIITD). 
+The website serves as a central hub for information about NSS-IIITD's activities, events, and initiatives. 
+It provides a user-friendly interface for both members and visitors to stay updated on the organization's work and participate in various programs.
+
+Table of Contents
+* Installation
+* Usage
+* Features
+* Contributing
+
+Installation
+To run the NSS-IIITD Website locally, follow these steps:
+
+bash
+Copy code
+# Clone the repository
+git clone https://github.com/your-username/nss-iiitd-website.git
+
+# Navigate to the project directory
+cd nss-iiitd
+
+#navigate to frontend and backend directories
+
+# Install dependencies in both ns-frontend and nss-backend
+npm install
+
+# Create a .env file and add necessary variables
+
+# Start the application
+npm start in nss-backend
+npm run dev in nss-frontend
+
+Usage
+Once the application is running, open your web browser and navigate to http://localhost:5173. Explore the website's features to learn about NSS-IIITD's initiatives, upcoming events, and how to get involved.
+
+Features
+Event Calendar: Stay informed about upcoming events organized by NSS-IIITD.
+Gallery: View photos and memories from past events.
+Join NSS: Learn how to become a member and contribute to social causes.
+Contact Us: Reach out to NSS-IIITD for inquiries or collaborations.
+
+Contributing
+We welcome contributions from the community to enhance the NSS-IIITD Website. To contribute:
+
+Fork the repository.
+Create a new branch: git checkout -b feature/your-feature.
+Make your changes and commit them: git commit -m 'Add some feature'.
+Push to the branch: git push origin feature/your-feature.
+Submit a pull request.
+Please follow the code of conduct and contribution guidelines in this repository.
